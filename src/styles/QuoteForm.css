@@ -1,0 +1,142 @@
+/* Container */
+.quoteform-container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  padding: 32px 24px 24px 24px;
+}
+
+.quoteform-container h1 {
+  text-align: center;
+  color: #1a3c40;
+  margin-bottom: 24px;
+  font-size: 2rem;
+}
+
+.steps-bar {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.step {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #eaf6f6;
+  color: #1a3c40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: 2px solid #eaf6f6;
+  transition: background 0.2s, border 0.2s;
+}
+.step.active {
+  background: #f7c873;
+  border: 2px solid #1a3c40;
+  color: #1a3c40;
+}
+
+.quoteform {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.step-content h2 {
+  color: #1a3c40;
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+}
+
+label {
+  font-weight: 500;
+  color: #1a3c40;
+  margin-bottom: 4px;
+  display: block;
+}
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #b2bec3;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+input[type="checkbox"] {
+  width: auto;
+  margin-right: 8px;
+}
+.services-checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.service-checkbox {
+  background: #eaf6f6;
+  border-radius: 8px;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+}
+.form-nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
+.form-nav button {
+  background: #1a3c40;
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.form-nav button:hover {
+  background: #f7c873;
+  color: #1a3c40;
+}
+.form-success {
+  background: #d4edea;
+  color: #1a3c40;
+  border-radius: 8px;
+  padding: 14px;
+  margin-top: 18px;
+  text-align: center;
+  font-weight: 600;
+}
+.foyer-details {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.foyer-details label {
+  margin-bottom: 0;
+}
+@media (max-width: 600px) {
+  .quoteform-container {
+    padding: 12px 4px;
+  }
+  .foyer-details {
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+  }
+  .services-checkboxes {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
