@@ -46,7 +46,7 @@ const HomePage = () => {
             </Link>
           </button>
           <div className="service-info">
-            <strong>Cleaning service available</strong>
+            <strong>Service de nettoyage</strong>
             <p>
               Intervention rapide à Nice et alentours. Produits écologiques sur
               demande.
