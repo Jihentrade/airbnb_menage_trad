@@ -6,6 +6,7 @@ import residence from "../assets/residance.png";
 import pro from "../assets/pro.png";
 import logo from "../assets/logo.png";
 import DevisStep3 from "../components/DevisStep3";
+import DevisStep4 from "../components/DevisStep4";
 import "../styles/DevisWizard.css";
 
 const besoinsOptions = [
@@ -59,7 +60,16 @@ export default function DevisWizard() {
     nombreChambres: "",
     nombreSallesDeBain: "",
     selectedServices: [],
+    civilite: "",
+    nom: "",
+    prenom: "",
+    email: "",
+    adresse: "",
+    telephone: "",
+    message: "",
   });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   // Sélection du besoin
   const handleBesoinSelect = (value) => {
@@ -77,6 +87,38 @@ export default function DevisWizard() {
 
   const handleServicesChange = (services) => {
     setForm((f) => ({ ...f, selectedServices: services }));
+  };
+
+  const handleSubmit = async () => {
+    setLoading(true);
+    setError("");
+    try {
+      // Ici, vous pouvez envoyer les données du formulaire à votre backend ou service d'email
+      // Exemple : await sendQuote(form);
+      // Pour l'instant, on simule une attente
+      await new Promise((res) => setTimeout(res, 1200));
+      alert("Votre demande de devis a bien été envoyée !");
+      setStep(0);
+      setForm({
+        besoin_pour: "",
+        surface: "",
+        frequence: "",
+        nombreChambres: "",
+        nombreSallesDeBain: "",
+        selectedServices: [],
+        civilite: "",
+        nom: "",
+        prenom: "",
+        email: "",
+        adresse: "",
+        telephone: "",
+        message: "",
+      });
+    } catch (e) {
+      setError("Erreur lors de l'envoi. Veuillez réessayer.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -297,6 +339,18 @@ export default function DevisWizard() {
             </button>
           </div>
         </section>
+      )}
+
+      {/* Étape 4 : Vos coordonnées */}
+      {step === 3 && (
+        <DevisStep4
+          form={form}
+          setForm={setForm}
+          onPrev={() => setStep(2)}
+          onSubmit={handleSubmit}
+          loading={loading}
+          error={error}
+        />
       )}
     </div>
   );
