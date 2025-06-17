@@ -30,9 +30,34 @@ const stepLabels = [
   "Vos coordonnées",
 ];
 
+const surfaceOptions = [
+  "Moins de 30m²",
+  "30-50m²",
+  "50-70m²",
+  "70-90m²",
+  "90-120m²",
+  "Plus de 120m²",
+];
+
+const frequenceOptions = [
+  { value: "ponctuel", label: "Ponctuel" },
+  { value: "hebdomadaire", label: "Hebdomadaire" },
+  { value: "bimensuel", label: "Bi-mensuel" },
+  { value: "mensuel", label: "Mensuel" },
+];
+
+const nombreChambresOptions = ["1", "2", "3", "4", "5 ou plus"];
+const nombreSallesDeBainOptions = ["1", "2", "3 ou plus"];
+
 export default function DevisWizard() {
   const [step, setStep] = useState(0);
-  const [form, setForm] = useState({ besoin_pour: "" });
+  const [form, setForm] = useState({
+    besoin_pour: "",
+    surface: "",
+    frequence: "",
+    nombreChambres: "",
+    nombreSallesDeBain: "",
+  });
 
   // Sélection du besoin
   const handleBesoinSelect = (value) => {
@@ -42,6 +67,11 @@ export default function DevisWizard() {
   // Navigation étapes
   const next = () => setStep((s) => Math.min(s + 1, stepLabels.length - 1));
   const prev = () => setStep((s) => Math.max(s - 1, 0));
+
+  // Gestion des changements de formulaire
+  const handleChange = (field, value) => {
+    setForm((f) => ({ ...f, [field]: value }));
+  };
 
   return (
     <div className="devis-wizard-container">
@@ -86,7 +116,7 @@ export default function DevisWizard() {
           </div>
           <div className="devis-avatar-row">
             <span className="devis-avatar">👤</span>
-            <span className="devis-avatar-name">Fabien Durand</span>
+            <span className="devis-avatar-name">Achraf Trade</span>
           </div>
           <div className="devis-step-desc">
             Aidez-nous à mieux vous connaître !<br />
@@ -130,7 +160,115 @@ export default function DevisWizard() {
           </div>
         </section>
       )}
-      {/* Étapes suivantes à compléter... */}
+
+      {/* Étape 2 : Votre logement */}
+      {step === 1 && (
+        <section className="devis-step-section">
+          <div className="devis-step-title">ÉTAPE 2 / 4</div>
+          <h2 className="devis-step-main">Votre logement</h2>
+          <div className="devis-step-sub">
+            Dites-nous en plus sur votre logement
+          </div>
+
+          <div className="devis-form-group">
+            <label className="devis-label">
+              Quelle est la surface de votre logement ? <b>*</b>
+            </label>
+            <div className="devis-options-grid">
+              {surfaceOptions.map((option) => (
+                <button
+                  key={option}
+                  type="button"
+                  className={`devis-option-btn${
+                    form.surface === option ? " selected" : ""
+                  }`}
+                  onClick={() => handleChange("surface", option)}
+                >
+                  {option}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="devis-form-group">
+            <label className="devis-label">
+              À quelle fréquence souhaitez-vous notre intervention ? <b>*</b>
+            </label>
+            <div className="devis-options-grid">
+              {frequenceOptions.map((option) => (
+                <button
+                  key={option.value}
+                  type="button"
+                  className={`devis-option-btn${
+                    form.frequence === option.value ? " selected" : ""
+                  }`}
+                  onClick={() => handleChange("frequence", option.value)}
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="devis-form-group">
+            <label className="devis-label">
+              Combien de chambres compte votre logement ? <b>*</b>
+            </label>
+            <div className="devis-options-grid">
+              {nombreChambresOptions.map((option) => (
+                <button
+                  key={option}
+                  type="button"
+                  className={`devis-option-btn${
+                    form.nombreChambres === option ? " selected" : ""
+                  }`}
+                  onClick={() => handleChange("nombreChambres", option)}
+                >
+                  {option}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="devis-form-group">
+            <label className="devis-label">
+              Combien de salles de bain compte votre logement ? <b>*</b>
+            </label>
+            <div className="devis-options-grid">
+              {nombreSallesDeBainOptions.map((option) => (
+                <button
+                  key={option}
+                  type="button"
+                  className={`devis-option-btn${
+                    form.nombreSallesDeBain === option ? " selected" : ""
+                  }`}
+                  onClick={() => handleChange("nombreSallesDeBain", option)}
+                >
+                  {option}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="devis-step-nav">
+            <button className="devis-prev-btn" onClick={prev}>
+              ← &nbsp;Précédent
+            </button>
+            <button
+              className="devis-next-btn"
+              onClick={next}
+              disabled={
+                !form.surface ||
+                !form.frequence ||
+                !form.nombreChambres ||
+                !form.nombreSallesDeBain
+              }
+            >
+              Suivant &nbsp;→
+            </button>
+          </div>
+        </section>
+      )}
     </div>
   );
 }
