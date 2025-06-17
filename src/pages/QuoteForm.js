@@ -5,6 +5,7 @@ import demeure from "../assets/demeure.png";
 import residence from "../assets/residance.png";
 import pro from "../assets/pro.png";
 import logo from "../assets/logo.png";
+import DevisStep3 from "../components/DevisStep3";
 import "../styles/DevisWizard.css";
 
 const besoinsOptions = [
@@ -57,6 +58,7 @@ export default function DevisWizard() {
     frequence: "",
     nombreChambres: "",
     nombreSallesDeBain: "",
+    selectedServices: [],
   });
 
   // Sélection du besoin
@@ -71,6 +73,10 @@ export default function DevisWizard() {
   // Gestion des changements de formulaire
   const handleChange = (field, value) => {
     setForm((f) => ({ ...f, [field]: value }));
+  };
+
+  const handleServicesChange = (services) => {
+    setForm((f) => ({ ...f, selectedServices: services }));
   };
 
   return (
@@ -101,7 +107,7 @@ export default function DevisWizard() {
           </div>
         </div>
         <div className="devis-header-right">
-          <span className="devis-phone">09 69 39 47 47</span>
+          <span className="devis-phone">+33 6 05 60 53 37</span>
           <span className="devis-phone-desc">prix d'un appel local</span>
         </div>
       </header>
@@ -263,6 +269,29 @@ export default function DevisWizard() {
                 !form.nombreChambres ||
                 !form.nombreSallesDeBain
               }
+            >
+              Suivant &nbsp;→
+            </button>
+          </div>
+        </section>
+      )}
+
+      {/* Étape 3 : Services choisis */}
+      {step === 2 && (
+        <section className="devis-step-section">
+          <div className="devis-step-title">ÉTAPE 3 / 4</div>
+          <DevisStep3
+            selectedServices={form.selectedServices}
+            setSelectedServices={handleServicesChange}
+          />
+          <div className="devis-step-nav">
+            <button className="devis-prev-btn" onClick={prev}>
+              ← &nbsp;Précédent
+            </button>
+            <button
+              className="devis-next-btn"
+              onClick={next}
+              disabled={form.selectedServices.length === 0}
             >
               Suivant &nbsp;→
             </button>

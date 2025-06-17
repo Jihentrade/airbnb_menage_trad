@@ -959,3 +959,197 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Styles pour l'étape 3/4 - Services choisis */
+.devis-step-section[data-step="3"] {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Titre et description */
+.devis-services-title {
+  color: #bfa46a;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.devis-services-description {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #222;
+  margin-bottom: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+}
+
+.devis-services-required {
+  color: #666;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Section agent */
+.devis-agent-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.devis-agent-avatar {
+  font-size: 1.3rem;
+  background: #f2ede7;
+  border-radius: 50%;
+  padding: 6px 10px;
+  color: #bfa46a;
+}
+
+.devis-agent-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #222;
+}
+
+/* Grille des services */
+.devis-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
+  margin-bottom: 2rem;
+}
+
+/* Cartes de service */
+.devis-service-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 2px solid #f2ede7;
+  position: relative;
+  overflow: hidden;
+}
+
+.devis-service-card:hover {
+  transform: translateY(-5px);
+  border-color: #bfa46a;
+  box-shadow: 0 10px 30px rgba(191, 164, 106, 0.15);
+}
+
+.devis-service-card.selected {
+  border-color: #bfa46a;
+  background: #fff;
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(191, 164, 106, 0.2);
+}
+
+.devis-service-card.selected::after {
+  content: "✓";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #bfa46a;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  animation: bounceIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.devis-service-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  filter: sepia(0.3) hue-rotate(20deg);
+}
+
+.devis-service-card:hover .devis-service-icon {
+  transform: scale(1.1) rotate(5deg);
+  filter: sepia(0.6) hue-rotate(20deg) brightness(0.9) saturate(1.2);
+}
+
+.devis-service-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.devis-service-desc {
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Animation pour la sélection */
+@keyframes bounceIn {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Media Queries pour l'étape 3 */
+@media (max-width: 900px) {
+  .devis-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 0 15px;
+  }
+
+  .devis-services-title {
+    font-size: 1.8rem;
+  }
+
+  .devis-services-description {
+    font-size: 1rem;
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .devis-services-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 0 10px;
+  }
+
+  .devis-services-title {
+    font-size: 1.5rem;
+  }
+
+  .devis-agent-info {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .devis-service-card {
+    padding: 20px 15px;
+  }
+
+  .devis-service-icon {
+    width: 50px;
+    height: 50px;
+  }
+}
