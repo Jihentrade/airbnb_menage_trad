@@ -6,6 +6,10 @@ import menageRegulier from "../assets/Ménagerégulier.png";
 import nettoyageAirbnb from "../assets/menageairbnb.png";
 import repassage from "../assets/Repassage.png";
 import nettoyageProfondeur from "../assets/Nettoyageprofondeur.jpg";
+import equipe from "../assets/equipe.png";
+import produits from "../assets/Produits.png";
+import flexibilite from "../assets/fexibilite.png";
+import etoile from "../assets/etoile.png";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
@@ -104,18 +108,20 @@ const HomePage = () => {
         <h2>Pourquoi nous choisir ?</h2>
         <ul className="about-list">
           <li>
-            <i className="fas fa-check-circle"></i> Équipe professionnelle et
-            expérimentée
+            <img src={equipe} alt="Équipe" className="about-icon" />
+            Équipe professionnelle et expérimentée
           </li>
           <li>
-            <i className="fas fa-check-circle"></i> Produits respectueux de
-            l'environnement
+            <img src={produits} alt="Produits" className="about-icon" />
+            Produits respectueux de l'environnement
           </li>
           <li>
-            <i className="fas fa-check-circle"></i> Flexibilité et réactivité
+            <img src={flexibilite} alt="Flexibilité" className="about-icon" />
+            Flexibilité et réactivité
           </li>
           <li>
-            <i className="fas fa-check-circle"></i> Satisfaction garantie
+            <img src={etoile} alt="Satisfaction" className="about-icon" />
+            Satisfaction garantie
           </li>
         </ul>
       </section>

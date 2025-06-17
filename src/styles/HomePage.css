@@ -3,30 +3,37 @@ body {
   padding: 0;
   font-family: "Segoe UI", Arial, sans-serif;
   background: #eaf6f6;
+  overflow-x: hidden;
 }
 
 .home-container {
   min-height: 100vh;
   background: linear-gradient(120deg, #eaf6f6 60%, #f7c873 100%);
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .home-header {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  padding: 30px 60px 0 60px;
+  padding: 20px 5%;
   background: transparent;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .logo-nav {
   display: flex;
   align-items: center;
   width: 100%;
+  justify-content: space-between;
 }
 
 .logo {
   height: 80px;
-  margin-right: 45px;
+  width: auto;
+  margin-right: 20px;
 }
 
 .nav-menu {
@@ -40,6 +47,7 @@ body {
   font-weight: 600;
   font-size: 1.1rem;
   transition: color 0.2s;
+  white-space: nowrap;
 }
 
 .nav-menu a:hover {
@@ -49,30 +57,28 @@ body {
 .home-main {
   display: flex;
   justify-content: space-between;
-  align-items: stretch;
-  padding: 40px 60px;
+  align-items: center;
+  padding: 40px 5%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .home-left {
-  flex: 1.2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 40px 0 0 0;
+  flex: 1;
+  padding-right: 40px;
 }
 
 .home-left h1 {
   font-size: 3rem;
   color: #1a3c40;
   margin-bottom: 18px;
-  font-weight: 700;
 }
 
 .intro {
   font-size: 1.2rem;
   color: #1a3c40;
   margin-bottom: 24px;
-  max-width: 400px;
+  max-width: 500px;
 }
 
 .cta-btn {
@@ -117,16 +123,15 @@ body {
 .home-right {
   flex: 1;
   display: flex;
-  align-items: center;
   justify-content: center;
-  position: relative;
 }
 
 .main-img {
-  width: 420px;
-  height: 420px;
-  object-fit: cover;
+  width: 100%;
+  max-width: 420px;
+  height: auto;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 /* --- Services Section --- */
@@ -158,26 +163,25 @@ body {
 
 .services-list {
   display: flex;
+  flex-wrap: nowrap;
   justify-content: center;
   gap: 20px;
-  flex-wrap: nowrap;
-  padding: 20px;
-  max-width: 1200px;
+  padding: 20px 40px;
+  max-width: 1400px;
   margin: 0 auto;
-  overflow-x: auto;
 }
 
 .service-card {
+  flex: 1;
+  min-width: 220px;
+  max-width: 280px;
   background: #fff;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  padding: 25px 20px;
-  width: 220px;
-  min-width: 220px;
+  padding: 30px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -243,184 +247,59 @@ body {
   animation-delay: 0.6s;
 }
 
-/* Media queries pour la section services */
-@media (max-width: 900px) {
-  .services-section {
-    padding: 60px 0 40px 0;
+/* Media Queries */
+@media screen and (max-width: 1200px) {
+  .home-main {
+    padding: 40px 3%;
   }
 
-  .services-section h2 {
-    font-size: 2.2rem;
-  }
-
-  .services-list {
-    justify-content: flex-start;
-    padding: 20px 10px;
-  }
-
-  .service-card {
-    width: 200px;
-    min-width: 200px;
-    padding: 20px 15px;
-  }
-
-  .service-icon {
-    width: 70px;
-    height: 70px;
+  .home-left h1 {
+    font-size: 2.8rem;
   }
 }
 
-@media (max-width: 480px) {
-  .services-section h2 {
-    font-size: 2rem;
+@media screen and (max-width: 992px) {
+  .home-header {
+    padding: 15px 3%;
   }
 
-  .service-card {
-    width: 180px;
-    min-width: 180px;
-    padding: 15px 10px;
-  }
-
-  .service-icon {
-    width: 60px;
+  .logo {
     height: 60px;
   }
 
-  .service-card h3 {
-    font-size: 1.1rem;
+  .nav-menu {
+    gap: 20px;
   }
 
-  .service-card p {
-    font-size: 0.8rem;
+  .nav-menu a {
+    font-size: 1rem;
   }
-}
 
-/* --- About Section --- */
-.about-section {
-  background: #f7c873;
-  padding: 50px 0 40px 0;
-  text-align: center;
-}
-.about-section h2 {
-  color: #1a3c40;
-  font-size: 2rem;
-  margin-bottom: 24px;
-}
-.about-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 auto;
-  max-width: 600px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 24px;
-}
-.about-list li {
-  background: #fff;
-  border-radius: 12px;
-  padding: 18px 28px;
-  color: #1a3c40;
-  font-size: 1.1rem;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-}
-.about-list i {
-  color: #1a3c40;
-  font-size: 1.3rem;
-}
-
-/* --- Contact Section --- */
-.contact-section {
-  background: #eaf6f6;
-  padding: 50px 0 40px 0;
-  text-align: center;
-}
-.contact-section h2 {
-  color: #1a3c40;
-  font-size: 2rem;
-  margin-bottom: 24px;
-}
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  max-width: 400px;
-  margin: 0 auto;
-}
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #b2bec3;
-  font-size: 1rem;
-  resize: none;
-}
-.contact-form button {
-  background: #1a3c40;
-  color: #fff;
-  border: none;
-  padding: 12px 32px;
-  border-radius: 30px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.contact-form button:hover {
-  background: #f7c873;
-  color: #1a3c40;
-}
-
-/* --- Footer --- */
-.footer {
-  background: #1a3c40;
-  color: #fff;
-  text-align: center;
-  padding: 18px 0;
-  font-size: 1rem;
-  margin-top: 0;
-}
-
-/* Media Queries pour la responsivité */
-@media (max-width: 900px) {
   .home-main {
     flex-direction: column;
-    padding: 20px;
+    text-align: center;
+    gap: 30px;
   }
 
   .home-left {
-    padding: 20px 0;
-    text-align: center;
+    padding-right: 0;
+    display: flex;
+    flex-direction: column;
     align-items: center;
   }
 
-  .home-right {
-    margin-top: 30px;
+  .intro {
+    max-width: 600px;
   }
 
   .main-img {
-    width: 300px;
-    height: 300px;
-  }
-
-  .services-list {
-    padding: 0 20px;
-  }
-
-  .service-card {
-    width: 100%;
-    max-width: 300px;
+    max-width: 350px;
   }
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .home-header {
-    padding: 20px;
+    padding: 15px 20px;
   }
 
   .logo-nav {
@@ -430,21 +309,12 @@ body {
   }
 
   .logo {
-    height: 60px;
-    margin-right: 0;
-    margin-bottom: 0;
+    height: 50px;
+    margin-right: 15px;
   }
 
   .nav-menu {
-    flex-direction: row;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .nav-menu a {
-    font-size: 0.9rem;
-    white-space: nowrap;
+    gap: 15px;
   }
 
   .home-left h1 {
@@ -455,26 +325,73 @@ body {
     font-size: 1.1rem;
   }
 
-  .about-list {
+  .main-img {
+    max-width: 300px;
+  }
+
+  .services-list {
+    flex-wrap: wrap;
     padding: 0 20px;
+    gap: 15px;
+  }
+
+  .service-card {
+    flex: 0 0 calc(50% - 7.5px);
+    min-width: unset;
+    max-width: unset;
+    padding: 20px;
+    margin-bottom: 15px;
+  }
+
+  .about-section {
+    padding: 40px 80px;
+  }
+
+  .about-section h2 {
+    font-size: 2rem;
+  }
+
+  .about-list {
+    flex-direction: column;
+    gap: 25px;
   }
 
   .about-list li {
     width: 100%;
+    margin-bottom: 0;
+    padding: 20px;
+  }
+
+  .contact-section {
+    padding: 40px 30px;
   }
 
   .contact-form {
-    padding: 0 20px;
+    padding: 25px;
+    margin: 0 20px;
   }
 }
 
-@media (max-width: 480px) {
+@media screen and (max-width: 576px) {
+  .home-header {
+    padding: 10px 15px;
+  }
+
+  .logo {
+    height: 40px;
+    margin-right: 10px;
+  }
+
   .nav-menu {
-    gap: 8px;
+    gap: 10px;
   }
 
   .nav-menu a {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .home-main {
+    padding: 20px 15px;
   }
 
   .home-left h1 {
@@ -486,17 +403,217 @@ body {
   }
 
   .main-img {
-    width: 250px;
-    height: 250px;
+    max-width: 250px;
+  }
+
+  .services-list {
+    padding: 0 15px;
   }
 
   .service-card {
-    padding: 20px 15px;
+    flex: 0 0 calc(50% - 7.5px);
+    padding: 15px;
   }
 
-  .about-section h2,
-  .services-section h2,
-  .contact-section h2 {
-    font-size: 1.8rem;
+  .service-card img {
+    width: 60px;
+    height: 60px;
   }
+
+  .service-card h3 {
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+
+  .about-section {
+    padding: 30px 50px;
+  }
+
+  .about-list {
+    gap: 20px;
+  }
+
+  .about-list li {
+    padding: 30px 25px;
+  }
+
+  .about-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .contact-section {
+    padding: 30px 25px;
+  }
+
+  .contact-form {
+    padding: 20px;
+    margin: 0 15px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 12px;
+  }
+
+  .contact-form button {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .service-card {
+    flex: 0 0 calc(50% - 7.5px);
+  }
+}
+
+/* --- About Section --- */
+.about-section {
+  background: linear-gradient(135deg, #f7c873 0%, #f8d494 100%);
+  padding: 60px 5%;
+  text-align: center;
+}
+
+.about-section h2 {
+  color: #1a3c40;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+}
+
+.about-section h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #1a3c40;
+}
+
+.about-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.about-list li {
+  flex: 1;
+  background: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.about-list i {
+  color: #f7c873;
+  font-size: 1.5rem;
+  background: #1a3c40;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+/* Style pour les icônes de "Pourquoi nous choisir" */
+.about-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* --- Contact Section --- */
+.contact-section {
+  background: #eaf6f6;
+  padding: 60px 5%;
+  text-align: center;
+}
+
+.contact-section h2 {
+  color: #1a3c40;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+}
+
+.contact-section h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #f7c873;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #eaf6f6;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #f7c873;
+  outline: none;
+}
+
+.contact-form button {
+  background: #1a3c40;
+  color: #fff;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: #f7c873;
+  color: #1a3c40;
+  transform: translateY(-2px);
+}
+
+/* --- Footer --- */
+.footer {
+  background: #1a3c40;
+  color: #fff;
+  text-align: center;
+  padding: 18px 0;
+  font-size: 1rem;
+  margin-top: 0;
 }
