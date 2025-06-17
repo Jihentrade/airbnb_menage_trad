@@ -1,0 +1,345 @@
+.devis-wizard-container {
+  background: #fff;
+  min-height: 100vh;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+.devis-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 24px 40px 0 40px;
+  background: #fff;
+  border-bottom: 1px solid #f2ede7;
+}
+.devis-header-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.devis-logo {
+  height: 54px;
+}
+.devis-retour {
+  color: #222;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.05rem;
+  margin-left: 12px;
+  transition: color 0.2s;
+}
+.devis-retour:hover {
+  color: #bfa46a;
+}
+.devis-header-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+.devis-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 8px;
+}
+.devis-steps-bar {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.devis-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0.5;
+  min-width: 90px;
+  position: relative;
+}
+.devis-step.active {
+  opacity: 1;
+}
+.devis-step-number {
+  background: #f2ede7;
+  color: #bfa46a;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+  border: 2px solid #bfa46a;
+}
+.devis-step-label {
+  font-size: 0.95rem;
+  color: #222;
+  font-weight: 500;
+  text-align: center;
+  max-width: 110px;
+}
+.devis-step-sep {
+  position: absolute;
+  right: -45px;
+  top: 16px;
+  width: 90px;
+  height: 2px;
+  background: #f2ede7;
+  z-index: 0;
+}
+.devis-header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+.devis-phone {
+  color: #bfa46a;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.devis-phone-desc {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* Étape 1 */
+.devis-step-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 36px 16px 0 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.devis-step-title {
+  color: #bfa46a;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+.devis-step-main {
+  color: #222;
+  font-size: 2.1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.devis-step-sub {
+  color: #bfa46a;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+.devis-avatar-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.devis-avatar {
+  font-size: 1.3rem;
+  background: #f2ede7;
+  border-radius: 50%;
+  padding: 6px 10px;
+  color: #bfa46a;
+}
+.devis-avatar-name {
+  color: #222;
+  font-weight: 600;
+}
+.devis-step-desc {
+  color: #222;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.devis-timing {
+  color: #bfa46a;
+  font-size: 1rem;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.devis-step-question {
+  color: #222;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 24px;
+}
+.devis-besoins-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+.devis-besoin-card {
+  background: #f9f6f2;
+  border-radius: 18px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 24px 20px 24px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  min-width: 170px;
+  min-height: 170px;
+  transition: box-shadow 0.2s, border 0.2s, transform 0.2s;
+  outline: none;
+}
+.devis-besoin-card.selected,
+.devis-besoin-card:focus,
+.devis-besoin-card:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  background: #f2ede7;
+  border: 2px solid #bfa46a;
+  transform: translateY(-4px) scale(1.04);
+}
+.devis-besoin-icon {
+  width: 54px;
+  height: 54px;
+  margin-bottom: 18px;
+  object-fit: contain;
+  filter: sepia(0.6) hue-rotate(20deg) brightness(0.9) saturate(1.2);
+}
+.devis-besoin-label {
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: #222;
+  text-align: center;
+  margin-top: 8px;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+.devis-step-nav {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+}
+.devis-next-btn {
+  background: #bfa46a;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 36px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: background 0.2s, color 0.2s;
+}
+.devis-next-btn:disabled {
+  background: #e0d6c2;
+  color: #fff;
+  cursor: not-allowed;
+}
+
+/* Compteur (pièces, animaux) */
+.devis-pieces-card {
+  display: flex;
+  align-items: center;
+  background: #f9f6f2;
+  border-radius: 18px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  padding: 24px 32px;
+  margin-bottom: 32px;
+  gap: 18px;
+  min-width: 220px;
+  min-height: 80px;
+  justify-content: center;
+}
+
+/* Style spécifique pour les cartes de surface (sans icônes) */
+.devis-surface-card {
+  background: #f9f6f2;
+  border-radius: 18px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  min-width: 200px;
+  min-height: 100px;
+  transition: box-shadow 0.2s, border 0.2s, transform 0.2s;
+  outline: none;
+}
+
+.devis-surface-card.selected,
+.devis-surface-card:focus,
+.devis-surface-card:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  background: #f2ede7;
+  border: 2px solid #bfa46a;
+  transform: translateY(-4px) scale(1.04);
+}
+
+.devis-surface-card .devis-besoin-label {
+  margin-top: 0;
+  font-size: 1.15rem;
+}
+
+.devis-pieces-btn {
+  background: #fff;
+  color: #bfa46a;
+  border: 2px solid #bfa46a;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.devis-pieces-btn:hover {
+  background: #bfa46a;
+  color: #fff;
+}
+.devis-pieces-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+  margin: 0 12px;
+  min-width: 32px;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .devis-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 18px 8px 0 8px;
+  }
+  .devis-header-center {
+    align-items: flex-start;
+  }
+  .devis-step-section {
+    padding: 24px 4px 0 4px;
+  }
+  .devis-besoins-cards {
+    gap: 16px;
+  }
+  .devis-besoin-card {
+    min-width: 120px;
+    min-height: 120px;
+    padding: 18px 8px 12px 8px;
+  }
+  .devis-step-label {
+    font-size: 0.85rem;
+    max-width: 80px;
+  }
+  .devis-pieces-card {
+    padding: 12px 8px;
+    min-width: 120px;
+  }
+}

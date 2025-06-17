@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PrivateRoute from "./privateRoute";
 import Accueil from "../pages/HomePage";
 import Devis from "../pages/QuoteForm";
-// import Dropzone from "../pages/Dropzone";
+ import DEvis2 from "../pages/DevisWizard";
 // import Login from "../pages/Login/login";
 // import Signup from "../components/SignUp/signup";
 // import ForgotPassword from "../components/ForgotPassword/forgotPassword";
@@ -29,7 +29,8 @@ const RouterConfig = () => {
       <Routes>
         <Route path="/" element={<Accueil />} />
         <Route path="/devis" element={<Devis />} />
-        {/* <Route path="/login" element={<Login />} />
+        <Route path="/devistest" element={<DEvis2 />} />
+        {/*
         <Route path="/dashboardAdmin" element={<Dashboard />} />
         <Route path="/fridge-preview" element={<FridgePreview />} />
         <Route path="/register" element={<Signup />} />

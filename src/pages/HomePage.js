@@ -2,8 +2,12 @@ import React from "react";
 import "../styles/HomePage.css";
 import logo from "../assets/logo.png";
 import menage from "../assets/hommemenage.jpg";
+import menageRegulier from "../assets/Ménagerégulier.png";
+import nettoyageAirbnb from "../assets/menageairbnb.png";
+import repassage from "../assets/Repassage.png";
+import nettoyageProfondeur from "../assets/Nettoyageprofondeur.jpg";
 import { useNavigate } from "react-router-dom";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -61,22 +65,34 @@ const HomePage = () => {
         <h2>Nos Services</h2>
         <div className="services-list">
           <div className="service-card">
-            <i className="fas fa-broom"></i>
+            <img
+              src={menageRegulier}
+              alt="Ménage régulier"
+              className="service-icon"
+            />
             <h3>Ménage régulier</h3>
             <p>Entretien hebdomadaire ou ponctuel de votre logement.</p>
           </div>
           <div className="service-card">
-            <i className="fas fa-door-open"></i>
+            <img
+              src={nettoyageAirbnb}
+              alt="Nettoyage Airbnb"
+              className="service-icon"
+            />
             <h3>Nettoyage Airbnb</h3>
             <p>Remise en état rapide entre deux locations saisonnières.</p>
           </div>
           <div className="service-card">
-            <i className="fas fa-tshirt"></i>
+            <img src={repassage} alt="Repassage" className="service-icon" />
             <h3>Repassage</h3>
             <p>Prise en charge de votre linge à domicile.</p>
           </div>
           <div className="service-card">
-            <i className="fas fa-soap"></i>
+            <img
+              src={nettoyageProfondeur}
+              alt="Nettoyage en profondeur"
+              className="service-icon"
+            />
             <h3>Nettoyage en profondeur</h3>
             <p>Grand ménage de printemps, après travaux ou déménagement.</p>
           </div>

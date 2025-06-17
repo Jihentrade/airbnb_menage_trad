@@ -1,288 +1,136 @@
 import React, { useState } from "react";
-import { Helmet } from "react-helmet";
-import "../styles/QuoteForm.css";
+import appartement from "../assets/appartement.png";
+import maison from "../assets/maison.png";
+import demeure from "../assets/demeure.png";
+import residence from "../assets/residance.png";
+import pro from "../assets/pro.png";
+import logo from "../assets/logo.png";
+import "../styles/DevisWizard.css";
 
-const steps = [
+const besoinsOptions = [
+  { value: "Un appartement", icon: appartement, label: "Un appartement" },
+  { value: "Une maison", icon: maison, label: "Une maison" },
+  { value: "Une grande demeure", icon: demeure, label: "Une grande demeure" },
+  {
+    value: "Une résidence secondaire",
+    icon: residence,
+    label: "Une résidence secondaire",
+  },
+  {
+    value: "Ménage pour professionnels",
+    icon: pro,
+    label: "Ménage pour professionnels",
+  },
+];
+
+const stepLabels = [
+  "Parlons de vous",
   "Votre logement",
-  "Vos besoins",
   "Services choisis",
   "Vos coordonnées",
 ];
 
-const initialData = {
-  logement: "",
-  surface: "",
-  pieces: 1,
-  foyer: "",
-  adultes: 1,
-  enfants: 0,
-  animaux: 0,
-  besoin: "",
-  frequence: "",
-  services: [],
-  nom: "",
-  prenom: "",
-  email: "",
-  adresse: "",
-  telephone: "",
-  message: "",
-};
-
-const allServices = [
-  "Ménage à domicile",
-  "Repassage à domicile",
-  "Vitres",
-  "Grand nettoyage",
-  "État des lieux",
-  "Emménagement",
-  "Déménagement",
-  "Remise en ordre",
-  "Aide et maintien à domicile",
-  "Autres",
-];
-
-export default function QuoteForm() {
+export default function DevisWizard() {
   const [step, setStep] = useState(0);
-  const [form, setForm] = useState(initialData);
-  const [submitted, setSubmitted] = useState(false);
+  const [form, setForm] = useState({ besoin_pour: "" });
 
-  const handleChange = (e) => {
-    const { name, value, type } = e.target;
-    setForm((f) => ({
-      ...f,
-      [name]: type === "number" ? Number(value) : value,
-    }));
+  // Sélection du besoin
+  const handleBesoinSelect = (value) => {
+    setForm((f) => ({ ...f, besoin_pour: value }));
   };
 
-  const handleServiceChange = (service) => {
-    setForm((f) => ({
-      ...f,
-      services: f.services.includes(service)
-        ? f.services.filter((s) => s !== service)
-        : [...f.services, service],
-    }));
-  };
-
-  const next = () => setStep((s) => Math.min(s + 1, steps.length - 1));
+  // Navigation étapes
+  const next = () => setStep((s) => Math.min(s + 1, stepLabels.length - 1));
   const prev = () => setStep((s) => Math.max(s - 1, 0));
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-    // Ici, vous pouvez envoyer les données à votre backend ou service email
-  };
-
   return (
-    <div className="quoteform-container">
-      <Helmet>
-        <title>Devis en ligne - Ménage à Nice</title>
-        <meta
-          name="description"
-          content="Demandez un devis gratuit pour un service de ménage à Nice. Réponse rapide, équipe professionnelle, prestations sur-mesure."
-        />
-      </Helmet>
-      <h1>Demandez votre devis en ligne</h1>
-      <div className="steps-bar">
-        {steps.map((s, i) => (
-          <div key={i} className={`step${i === step ? " active" : ""}`}>
-            {i + 1}
-          </div>
-        ))}
-      </div>
-      <form className="quoteform" onSubmit={handleSubmit} autoComplete="off">
-        {step === 0 && (
-          <div className="step-content">
-            <h2>Votre logement</h2>
-            <label>Type de logement *</label>
-            <select
-              name="logement"
-              value={form.logement}
-              onChange={handleChange}
-              required
-            >
-              <option value="">Choisissez...</option>
-              <option>Appartement</option>
-              <option>Maison</option>
-              <option>Grande demeure</option>
-              <option>Résidence secondaire</option>
-              <option>Professionnel</option>
-            </select>
-            <label>Surface *</label>
-            <select
-              name="surface"
-              value={form.surface}
-              onChange={handleChange}
-              required
-            >
-              <option value="">Choisissez...</option>
-              <option>Moins de 50m²</option>
-              <option>51m² à 100m²</option>
-              <option>101m² à 150m²</option>
-              <option>Plus de 150m²</option>
-            </select>
-            <label>Nombre de pièces *</label>
-            <input
-              type="number"
-              name="pieces"
-              min="1"
-              max="20"
-              value={form.pieces}
-              onChange={handleChange}
-              required
-            />
-            <label>Composition du foyer *</label>
-            <select
-              name="foyer"
-              value={form.foyer}
-              onChange={handleChange}
-              required
-            >
-              <option value="">Choisissez...</option>
-              <option>Seul</option>
-              <option>En colocation</option>
-              <option>En couple</option>
-              <option>En famille</option>
-            </select>
-            <div className="foyer-details">
-              <label>Adultes</label>
-              <input
-                type="number"
-                name="adultes"
-                min="1"
-                max="10"
-                value={form.adultes}
-                onChange={handleChange}
-              />
-              <label>Enfants</label>
-              <input
-                type="number"
-                name="enfants"
-                min="0"
-                max="10"
-                value={form.enfants}
-                onChange={handleChange}
-              />
-              <label>Animaux</label>
-              <input
-                type="number"
-                name="animaux"
-                min="0"
-                max="10"
-                value={form.animaux}
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-        )}
-        {step === 1 && (
-          <div className="step-content">
-            <h2>Vos besoins</h2>
-            <label>Fréquence *</label>
-            <select
-              name="frequence"
-              value={form.frequence}
-              onChange={handleChange}
-              required
-            >
-              <option value="">Choisissez...</option>
-              <option>Occasionnelle (grand nettoyage, emménagement...)</option>
-              <option>Régulière (ménage, repassage, vitres...)</option>
-            </select>
-            <label>Précisez votre besoin</label>
-            <textarea
-              name="besoin"
-              value={form.besoin}
-              onChange={handleChange}
-              placeholder="Décrivez votre besoin..."
-              rows={3}
-            />
-          </div>
-        )}
-        {step === 2 && (
-          <div className="step-content">
-            <h2>Services choisis</h2>
-            <div className="services-checkboxes">
-              {allServices.map((service) => (
-                <label key={service} className="service-checkbox">
-                  <input
-                    type="checkbox"
-                    checked={form.services.includes(service)}
-                    onChange={() => handleServiceChange(service)}
-                  />
-                  {service}
-                </label>
-              ))}
-            </div>
-          </div>
-        )}
-        {step === 3 && (
-          <div className="step-content">
-            <h2>Vos coordonnées</h2>
-            <label>Nom *</label>
-            <input
-              name="nom"
-              value={form.nom}
-              onChange={handleChange}
-              required
-            />
-            <label>Prénom *</label>
-            <input
-              name="prenom"
-              value={form.prenom}
-              onChange={handleChange}
-              required
-            />
-            <label>Email *</label>
-            <input
-              type="email"
-              name="email"
-              value={form.email}
-              onChange={handleChange}
-              required
-            />
-            <label>Adresse, ville ou code postal *</label>
-            <input
-              name="adresse"
-              value={form.adresse}
-              onChange={handleChange}
-              required
-            />
-            <label>Téléphone *</label>
-            <input
-              name="telephone"
-              value={form.telephone}
-              onChange={handleChange}
-              required
-            />
-            <label>Message (facultatif)</label>
-            <textarea
-              name="message"
-              value={form.message}
-              onChange={handleChange}
-              rows={2}
-            />
-          </div>
-        )}
-        <div className="form-nav">
-          {step > 0 && (
-            <button type="button" onClick={prev}>
-              Précédent
-            </button>
-          )}
-          {step < steps.length - 1 && (
-            <button type="button" onClick={next}>
-              Suivant
-            </button>
-          )}
-          {step === steps.length - 1 && <button type="submit">Envoyer</button>}
+    <div className="devis-wizard-container">
+      {/* Header Shiva style */}
+      <header className="devis-header">
+        <div className="devis-header-left">
+          <img src={logo} alt="Logo" className="devis-logo" />
+          <a href="/" className="devis-retour">
+            Retour au site
+          </a>
         </div>
-        {submitted && (
-          <div className="form-success">
-            Merci, votre demande a bien été envoyée ! Nous vous contacterons
-            rapidement.
+        <div className="devis-header-center">
+          <span className="devis-title">Demandez un devis</span>
+          <div className="devis-steps-bar">
+            {stepLabels.map((label, i) => (
+              <div
+                key={i}
+                className={`devis-step${i === step ? " active" : ""}`}
+              >
+                <span className="devis-step-number">{i + 1}</span>
+                <span className="devis-step-label">{label}</span>
+                {i < stepLabels.length - 1 && (
+                  <span className="devis-step-sep" />
+                )}
+              </div>
+            ))}
           </div>
-        )}
-      </form>
+        </div>
+        <div className="devis-header-right">
+          <span className="devis-phone">09 69 39 47 47</span>
+          <span className="devis-phone-desc">prix d'un appel local</span>
+        </div>
+      </header>
+
+      {/* Étape 1 : Parler de vous */}
+      {step === 0 && (
+        <section className="devis-step-section">
+          <div className="devis-step-title">ÉTAPE 1 / 4</div>
+          <h2 className="devis-step-main">Parlons de vous</h2>
+          <div className="devis-step-sub">
+            Le spécialiste du ménage repassage à domicile
+          </div>
+          <div className="devis-avatar-row">
+            <span className="devis-avatar">👤</span>
+            <span className="devis-avatar-name">Fabien Durand</span>
+          </div>
+          <div className="devis-step-desc">
+            Aidez-nous à mieux vous connaître !<br />
+            Nous trouverons pour vous l'intervenant idéal et les services les
+            plus adaptés à vos besoins !
+          </div>
+          <div className="devis-timing">
+            ⏱️ Temps à prévoir <b>2 min</b>
+          </div>
+          <div className="devis-step-question">
+            Pouvez-vous m'en dire un peu plus ?<br />
+            Vous avez un besoin pour <b>*</b> :
+          </div>
+          <div className="devis-besoins-cards">
+            {besoinsOptions.map((opt) => (
+              <button
+                type="button"
+                key={opt.value}
+                className={`devis-besoin-card${
+                  form.besoin_pour === opt.value ? " selected" : ""
+                }`}
+                onClick={() => handleBesoinSelect(opt.value)}
+              >
+                <img
+                  src={opt.icon}
+                  alt={opt.label}
+                  className="devis-besoin-icon"
+                />
+                <span className="devis-besoin-label">{opt.label}</span>
+              </button>
+            ))}
+          </div>
+          <div className="devis-step-nav">
+            <button
+              className="devis-next-btn"
+              onClick={next}
+              disabled={!form.besoin_pour}
+            >
+              Suivant &nbsp;→
+            </button>
+          </div>
+        </section>
+      )}
+      {/* Étapes suivantes à compléter... */}
     </div>
   );
 }
