@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.b40d9bf6.css",
-    "main.js": "/static/js/main.50bfd9e7.js",
+    "main.js": "/static/js/main.40af0a6b.js",
     "static/media/hommemenage.jpg": "/static/media/hommemenage.df1ae48f0567c0113527.jpg",
     "static/media/logo.png": "/static/media/logo.9c340f07979bfff446f0.png",
     "static/media/menageairbnb.png": "/static/media/menageairbnb.8bbbe3d37096b33cdb3b.png",
@@ -16,10 +16,10 @@
     "static/media/demeure.png": "/static/media/demeure.04855dbe1f403a8230ed.png",
     "index.html": "/index.html",
     "main.b40d9bf6.css.map": "/static/css/main.b40d9bf6.css.map",
-    "main.50bfd9e7.js.map": "/static/js/main.50bfd9e7.js.map"
+    "main.40af0a6b.js.map": "/static/js/main.40af0a6b.js.map"
   },
   "entrypoints": [
     "static/css/main.b40d9bf6.css",
-    "static/js/main.50bfd9e7.js"
+    "static/js/main.40af0a6b.js"
   ]
 }
