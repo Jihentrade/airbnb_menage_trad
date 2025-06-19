@@ -379,6 +379,27 @@ body {
     width: 100%;
     margin-bottom: 0;
     padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-list li h3 {
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 1.2rem;
+  }
+
+  .about-list li p {
+    text-align: center;
+    width: 100%;
+  }
+
+  .about-icon {
+    margin: 0 auto 10px auto;
+    display: block;
   }
 
   .contact-section {
@@ -454,6 +475,12 @@ body {
 
   .about-list li {
     padding: 30px 25px;
+    text-align: center;
+  }
+
+  .about-list li h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
   }
 
   .about-icon {
@@ -546,9 +573,9 @@ body {
   content: "";
   position: absolute;
   bottom: -10px;
-  left: 50%;
+  left: 30%;
   transform: translateX(-50%);
-  width: 60px;
+  width: 50px;
   height: 3px;
   background: #1a3c40;
 }
@@ -557,9 +584,9 @@ body {
   list-style: none;
   padding: 0;
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1100px;
   display: flex;
-  justify-content: space-between;
+align-items: center;
   gap: 20px;
   padding: 0 20px;
 }
