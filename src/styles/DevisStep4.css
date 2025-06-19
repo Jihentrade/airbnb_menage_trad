@@ -1,0 +1,217 @@
+.devis-step4-section {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.devis-step4-title {
+  font-size: 1.2rem;
+  color: #bfa46a;
+  text-align: center;
+  margin-bottom: 1rem;
+  animation: slideDown 0.5s ease-in-out;
+}
+
+.devis-step4-main {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  animation: slideDown 0.6s ease-in-out;
+}
+
+.devis-step4-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  animation: scaleUp 0.5s ease-in-out;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.devis-step4-civilite {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.devis-step4-civilite-btn {
+  padding: 0.8rem 2rem;
+  border: 2px solid #bfa46a;
+  background: transparent;
+  color: #bfa46a;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  min-width: 80px;
+}
+
+.devis-step4-civilite-btn:hover {
+  background: #bfa46a15;
+}
+
+.devis-step4-civilite-btn.selected {
+  background: #bfa46a;
+  color: white;
+}
+
+.devis-step4-input-group {
+  margin-bottom: 1.5rem;
+  animation: slideUp 0.5s ease-in-out;
+}
+
+.devis-step4-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 450;
+}
+
+.devis-step4-input {
+  width: 82%;
+  padding: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.devis-step4-input:focus {
+  border-color: #bfa46a;
+  box-shadow: 0 0 0 3px rgba(191, 164, 106, 0.1);
+  outline: none;
+}
+
+.devis-step4-input.error {
+  border-color: #ff4646;
+}
+
+.devis-step4-error-text {
+  color: #ff4646;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  animation: shake 0.5s ease-in-out;
+}
+
+.devis-step4-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.devis-step4-prev-btn {
+  padding: 1rem 2rem;
+  background: transparent;
+  border: 2px solid #bfa46a;
+  color: #bfa46a;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.devis-step4-prev-btn:hover {
+  background: #bfa46a15;
+}
+
+.devis-step4-submit-btn {
+  padding: 1rem 2rem;
+  background: #bfa46a;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.devis-step4-submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(191, 164, 106, 0.3);
+}
+
+.devis-step4-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .devis-step4-section {
+    padding: 1rem;
+    max-width: 1000%;
+  }
+
+  .devis-step4-form {
+    padding: 1.5rem;
+    max-width: 100%;
+  }
+
+  .devis-step4-nav {
+    flex-direction: column;
+  }
+
+  .devis-step4-prev-btn,
+  .devis-step4-submit-btn {
+    width: 100%;
+  }
+}
