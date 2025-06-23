@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import "../styles/HomePage.css";
 import logo from "../assets/logo.png";
 import menage from "../assets/hommemenage.jpg";
@@ -12,11 +12,50 @@ import flexibilite from "../assets/fexibilite.png";
 import etoile from "../assets/etoile.png";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import emailjs from "@emailjs/browser";
+import Notification from "../components/Notification";
 
 const HomePage = () => {
   const navigate = useNavigate();
+  const form = useRef();
+  const [notification, setNotification] = useState({ message: "", type: "" });
+
+  const showNotification = (message, type) => {
+    setNotification({ message, type });
+    setTimeout(() => {
+      setNotification({ message: "", type: "" });
+    }, 3000);
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_849nmjs",
+        "template_nxuug3g",
+        form.current,
+        "QQnnPAGBI4btbxOwG"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          showNotification("Message sent successfully!", "success");
+          e.target.reset();
+        },
+        (error) => {
+          console.log(error.text);
+          showNotification(
+            "Failed to send the message, please try again.",
+            "error"
+          );
+        }
+      );
+  };
+
   return (
     <div className="home-container">
+      <Notification message={notification.message} type={notification.type} />
       <header className="home-header">
         <div className="logo-nav">
           <img src={logo} alt="Logo Cleaning Service" className="logo" />
@@ -129,10 +168,31 @@ const HomePage = () => {
       {/* Section Contact rapide */}
       <section className="contact-section" id="contact">
         <h2>Contactez-nous</h2>
-        <form className="contact-form">
-          <input type="text" placeholder="Votre nom" required />
-          <input type="email" placeholder="Votre email" required />
-          <textarea placeholder="Votre message" rows="3" required></textarea>
+        <form ref={form} onSubmit={sendEmail} className="contact-form">
+          <input
+            type="text"
+            placeholder="Votre nom"
+            name="user_name"
+            required
+          />
+          <input
+            type="email"
+            placeholder="Votre email"
+            name="user_email"
+            required
+          />
+          <input
+            type="tel"
+            placeholder="Votre téléphone"
+            name="user_phone"
+            required
+          />
+          <textarea
+            placeholder="Votre message"
+            rows="3"
+            name="message"
+            required
+          ></textarea>
           <button type="submit">Envoyer</button>
         </form>
       </section>

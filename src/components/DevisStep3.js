@@ -10,6 +10,12 @@ import {
 
 const services = [
   {
+    id: "menage-airbnb",
+    name: "Ménage Airbnb",
+    Icon: GrandNettoyageIcon,
+    description: "Grand nettoyage, État des lieux, Remise en ordre...",
+  },
+  {
     id: "grand-nettoyage",
     name: "Grand nettoyage",
     Icon: GrandNettoyageIcon,
