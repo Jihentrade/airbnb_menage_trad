@@ -1,0 +1,99 @@
+.expertise-section {
+  padding: 80px 5%;
+  background-color: #fff;
+  text-align: center;
+}
+
+.expertise-title {
+  font-size: 2.5rem;
+  color: #1a3c40;
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.expertise-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #f7c873;
+}
+
+.expertise-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 50px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.expertise-card {
+  background: #f9f9f9;
+  padding: 40px 30px;
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 4px solid #f7c873;
+}
+
+.expertise-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.expertise-icon {
+  color: #1a3c40;
+  margin-bottom: 20px;
+}
+
+.expertise-icon .MuiSvgIcon-root {
+  font-size: 3rem;
+}
+
+.expertise-card-title {
+  font-size: 1.3rem;
+  color: #1a3c40;
+  margin-bottom: 10px;
+}
+
+.expertise-card-description {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+@media screen and (max-width: 768px) {
+  .expertise-section {
+    padding: 60px 5%;
+  }
+
+  .expertise-title {
+    font-size: 2rem;
+  }
+
+  .expertise-subtitle {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+
+  .expertise-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .expertise-card {
+    padding: 30px 25px;
+  }
+}

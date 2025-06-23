@@ -15,6 +15,8 @@ import { Link } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import Notification from "../components/Notification";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import ExpertiseSection from "../components/ExpertiseSection";
+
 const HomePage = () => {
   const navigate = useNavigate();
   const form = useRef();
@@ -62,7 +64,7 @@ const HomePage = () => {
           <nav className="nav-menu">
             <a href="#home">Accueil</a>
             <a href="#services">Services</a>
-            <a href="#about">Pourquoi nous ?</a>
+            <a href="#metiers">Nos Métiers</a>
             <a href="#contact">Contact</a>
             <a
               href="https://wa.me/33753641503"
@@ -93,14 +95,14 @@ const HomePage = () => {
                 Obtenir un devis
               </Link>
             </button>
-            <a
+            {/* <a
               href="https://wa.me/33753641503"
               target="_blank"
               rel="noopener noreferrer"
               className="whatsapp-side-icon"
             >
               <WhatsAppIcon />
-            </a>
+            </a> */}
           </div>
           <div className="service-info">
             <strong>Service de nettoyage</strong>
@@ -182,6 +184,8 @@ const HomePage = () => {
           </li>
         </ul>
       </section>
+
+      <ExpertiseSection />
 
       {/* Section Contact rapide */}
       <section className="contact-section" id="contact">

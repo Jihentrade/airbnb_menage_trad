@@ -31,7 +31,7 @@ body {
 }
 
 .logo {
-  height: 80px;
+  height: 100px;
   width: auto;
   margin-right: 20px;
 }
@@ -81,8 +81,13 @@ body {
 
 .home-left h1 {
   font-size: 3rem;
-  color: #1a3c40;
   margin-bottom: 18px;
+  background-image: linear-gradient(45deg, #1a3c40, #4d6e71);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  animation: slide-in-down 0.8s ease-out forwards;
 }
 
 .intro {
@@ -90,6 +95,8 @@ body {
   color: #1a3c40;
   margin-bottom: 24px;
   max-width: 500px;
+  animation: slide-in-up 0.8s ease-out 0.2s forwards;
+  opacity: 0; /* Start hidden for animation */
 }
 
 .cta-btn {
@@ -108,6 +115,7 @@ body {
   background: #f7c873;
   color: #1a3c40;
   transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(247, 200, 115, 0.4); /* Glow effect */
 }
 
 .cta-container {
@@ -208,6 +216,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 2px solid transparent;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -216,6 +225,7 @@ body {
 .service-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  border-color: #f7c873;
 }
 
 .service-icon {
@@ -250,6 +260,28 @@ body {
   from {
     opacity: 0;
     transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -294,7 +326,7 @@ body {
   }
 
   .logo {
-    height: 60px;
+    height: 70px;
   }
 
   .nav-menu {
@@ -333,7 +365,7 @@ body {
   }
 
   .logo {
-    height: 50px;
+    height: 70px;
     margin-right: 15px;
     margin-bottom: 0;
   }
@@ -466,7 +498,7 @@ body {
   }
 
   .logo {
-    height: 40px;
+    height: 50px;
     margin-right: 10px;
   }
 
@@ -561,7 +593,10 @@ body {
     padding: 0 10px;
     gap: 10px;
   }
-
+  .logo {
+    height: 80px;
+    margin-right: 10px;
+  }
   .service-card {
     flex: 0 0 calc(50% - 10px);
     min-width: 140px;
@@ -601,7 +636,10 @@ body {
     margin: 0 10px;
   }
 }
-
+.logo {
+  height: 80px;
+  margin-right: 10px;
+}
 /* --- About Section --- */
 .about-section {
   background: linear-gradient(135deg, #f7c873 0%, #f8d494 100%);
