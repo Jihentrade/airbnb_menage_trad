@@ -21,9 +21,8 @@ export default function DevisStep4({
 
   const isPhoneValid =
     form.telephone &&
-    /^0\d{9}$|^\+33 ?[1-9](?: ?\d{2}){4}$/.test(
-      form.telephone.replace(/\s/g, "")
-    );
+    /^(0|\+33|0033)[1-9]\d{8}$/.test(form.telephone.replace(/\s|-/g, ""));
+
   const isFormValid =
     form.civilite &&
     form.nom &&

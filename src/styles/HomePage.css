@@ -54,6 +54,17 @@ body {
   color: #f7c873;
 }
 
+.whatsapp-nav-icon {
+  font-size: 1.8rem;
+  color: #1a3c40;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-nav-icon:hover {
+  transform: scale(1.2);
+  color: #f7c873;
+}
+
 .home-main {
   display: flex;
   justify-content: space-between;
@@ -89,7 +100,6 @@ body {
   border-radius: 30px;
   font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 32px;
   cursor: pointer;
   transition: background 0.2s;
 }
@@ -97,6 +107,22 @@ body {
 .cta-btn:hover {
   background: #f7c873;
   color: #1a3c40;
+  transform: translateY(-2px);
+}
+
+.cta-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 24px;
+}
+
+.submit-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  justify-content: center;
 }
 
 .service-info {
@@ -256,6 +282,10 @@ body {
   .home-left h1 {
     font-size: 2.8rem;
   }
+
+  .main-img {
+    max-width: 350px;
+  }
 }
 
 @media screen and (max-width: 992px) {
@@ -299,34 +329,52 @@ body {
 
 @media screen and (max-width: 768px) {
   .home-header {
-    padding: 15px 20px;
-  }
-
-  .logo-nav {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    padding: 10px 15px;
   }
 
   .logo {
     height: 50px;
     margin-right: 15px;
+    margin-bottom: 0;
+  }
+
+  .logo-nav {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
   }
 
   .nav-menu {
-    gap: 15px;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .nav-menu a {
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+
+  .whatsapp-nav-icon {
+    font-size: 1.4rem;
+    display: block !important;
+  }
+
+  .home-main {
+    padding: 30px 20px;
   }
 
   .home-left h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
 
   .intro {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
   .main-img {
-    max-width: 300px;
+    max-width: 350px;
   }
 
   .services-list {
@@ -692,6 +740,17 @@ body {
   background: #f7c873;
   color: #1a3c40;
   transform: translateY(-2px);
+}
+
+.whatsapp-side-icon {
+  color: #1a3c40;
+  font-size: 2.5rem !important; /* Use important to override potential conflicts */
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-side-icon:hover {
+  transform: scale(1.1);
+  color: #f7c873;
 }
 
 /* --- Footer --- */

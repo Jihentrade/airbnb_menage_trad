@@ -7,7 +7,9 @@ import pro from "../assets/pro.png";
 import logo from "../assets/logo.png";
 import DevisStep3 from "../components/DevisStep3";
 import DevisStep4 from "../components/DevisStep4";
+import Notification from "../components/Notification";
 import "../styles/DevisWizard.css";
+import emailjs from "@emailjs/browser";
 
 const besoinsOptions = [
   { value: "Un appartement", icon: appartement, label: "Un appartement" },
@@ -70,6 +72,14 @@ export default function DevisWizard() {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [notification, setNotification] = useState({ message: "", type: "" });
+
+  const showNotification = (message, type) => {
+    setNotification({ message, type });
+    setTimeout(() => {
+      setNotification({ message: "", type: "" });
+    }, 3000);
+  };
 
   // Sélection du besoin
   const handleBesoinSelect = (value) => {
@@ -92,37 +102,59 @@ export default function DevisWizard() {
   const handleSubmit = async () => {
     setLoading(true);
     setError("");
-    try {
-      // Ici, vous pouvez envoyer les données du formulaire à votre backend ou service d'email
-      // Exemple : await sendQuote(form);
-      // Pour l'instant, on simule une attente
-      await new Promise((res) => setTimeout(res, 1200));
-      alert("Votre demande de devis a bien été envoyée !");
-      setStep(0);
-      setForm({
-        besoin_pour: "",
-        surface: "",
-        frequence: "",
-        nombreChambres: "",
-        nombreSallesDeBain: "",
-        selectedServices: [],
-        civilite: "",
-        nom: "",
-        prenom: "",
-        email: "",
-        adresse: "",
-        telephone: "",
-        message: "",
-      });
-    } catch (e) {
-      setError("Erreur lors de l'envoi. Veuillez réessayer.");
-    } finally {
-      setLoading(false);
-    }
+
+    const templateParams = {
+      ...form,
+      selectedServices: form.selectedServices.join(", "),
+    };
+
+    emailjs
+      .send(
+        "service_849nmjs",
+        "template_vvsejoc",
+        templateParams,
+        "QQnnPAGBI4btbxOwG"
+      )
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+          setLoading(false);
+          showNotification(
+            "Votre demande de devis a bien été envoyée !",
+            "success"
+          );
+          setStep(0);
+          setForm({
+            besoin_pour: "",
+            surface: "",
+            frequence: "",
+            nombreChambres: "",
+            nombreSallesDeBain: "",
+            selectedServices: [],
+            civilite: "",
+            nom: "",
+            prenom: "",
+            email: "",
+            adresse: "",
+            telephone: "",
+            message: "",
+          });
+        },
+        (err) => {
+          console.log("FAILED...", err);
+          setLoading(false);
+          setError("Erreur lors de l'envoi. Veuillez réessayer.");
+          showNotification(
+            "Erreur lors de l'envoi. Veuillez réessayer.",
+            "error"
+          );
+        }
+      );
   };
 
   return (
     <div className="devis-wizard-container">
+      <Notification message={notification.message} type={notification.type} />
       {/* Header Shiva style */}
       <header className="devis-header">
         <div className="devis-header-left">

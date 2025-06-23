@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import Notification from "../components/Notification";
-
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 const HomePage = () => {
   const navigate = useNavigate();
   const form = useRef();
@@ -64,6 +64,14 @@ const HomePage = () => {
             <a href="#services">Services</a>
             <a href="#about">Pourquoi nous ?</a>
             <a href="#contact">Contact</a>
+            <a
+              href="https://wa.me/33753641503"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="whatsapp-nav-icon"
+            >
+              <WhatsAppIcon />
+            </a>
           </nav>
         </div>
       </header>
@@ -76,14 +84,24 @@ const HomePage = () => {
             saisonnières. Profitez d'une équipe fiable, rapide et discrète pour
             un intérieur toujours impeccable !
           </p>
-          <button className="cta-btn">
-            <Link
-              to="/devis"
-              style={{ color: "inherit", textDecoration: "none" }}
+          <div className="cta-container">
+            <button className="cta-btn">
+              <Link
+                to="/devis"
+                style={{ color: "inherit", textDecoration: "none" }}
+              >
+                Obtenir un devis
+              </Link>
+            </button>
+            <a
+              href="https://wa.me/33753641503"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="whatsapp-side-icon"
             >
-              Obtenir un devis
-            </Link>
-          </button>
+              <WhatsAppIcon />
+            </a>
+          </div>
           <div className="service-info">
             <strong>Service de nettoyage</strong>
             <p>
@@ -193,7 +211,17 @@ const HomePage = () => {
             name="message"
             required
           ></textarea>
-          <button type="submit">Envoyer</button>
+          <div className="submit-container">
+            <button type="submit">Envoyer</button>
+            <a
+              href="https://wa.me/33753641503"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="whatsapp-side-icon"
+            >
+              <WhatsAppIcon />
+            </a>
+          </div>
         </form>
       </section>
 
