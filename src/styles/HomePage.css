@@ -90,6 +90,16 @@ body {
   animation: slide-in-down 0.8s ease-out forwards;
 }
 
+.h1-subtitle {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-top: 10px;
+  color: #1a3c40; /* Fallback for browsers that don't support gradient text */
+  background-image: none;
+  text-shadow: none;
+}
+
 .intro {
   font-size: 1.2rem;
   color: #1a3c40;

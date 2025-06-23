@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import { Helmet } from "react-helmet";
 import "../styles/HomePage.css";
 import logo from "../assets/logo.png";
 import menage from "../assets/hommemenage.jpg";
@@ -55,8 +56,56 @@ const HomePage = () => {
       );
   };
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    name: "Del coup d'éclat",
+    description:
+      "Entreprise de ménage et nettoyage professionnel à Nice pour particuliers et locations saisonnières (Airbnb).",
+    url: "https://www.votresite.com", // Replace with your actual domain
+    telephone: "+33753641503",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Nice",
+      addressCountry: "FR",
+    },
+    image: logo,
+    servesCuisine: "Ménage et Nettoyage",
+    priceRange: "€€",
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday",
+        ],
+        opens: "08:00",
+        closes: "20:00",
+      },
+    ],
+  };
+
   return (
     <div className="home-container">
+      <Helmet>
+        <title>Ménage Airbnb & Nettoyage à Nice - Del coup d'éclat</title>
+        <meta
+          name="description"
+          content="Service professionnel de ménage à Nice pour particuliers et locations Airbnb. Nettoyage, grand nettoyage, remise en ordre après travaux. Obtenez un devis gratuit !"
+        />
+        <meta
+          name="keywords"
+          content="ménage nice, airbnb menage nice, nettoyage nice, entreprise de nettoyage nice, conciergerie airbnb nice, service de ménage nice, nettoyage après travaux nice"
+        />
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      </Helmet>
       <Notification message={notification.message} type={notification.type} />
       <header className="home-header">
         <div className="logo-nav">
@@ -79,12 +128,17 @@ const HomePage = () => {
       </header>
       <main className="home-main">
         <section className="home-left">
-          <h1>Del coup d'éclat</h1>
+          <h1>
+            Del coup d'éclat
+            <span className="h1-subtitle">
+              Ménage & Nettoyage Professionnel à Nice
+            </span>
+          </h1>
           <p className="intro">
-            Entreprise de ménage à Nice, nous proposons des prestations de
+            Votre expert en ménage à Nice. Nous proposons des prestations de
             nettoyage professionnelles pour particuliers et locations
-            saisonnières. Profitez d'une équipe fiable, rapide et discrète pour
-            un intérieur toujours impeccable !
+            saisonnières Airbnb. Profitez d'une équipe fiable pour un intérieur
+            impeccable !
           </p>
           <div className="cta-container">
             <button className="cta-btn">
@@ -105,7 +159,7 @@ const HomePage = () => {
             </a> */}
           </div>
           <div className="service-info">
-            <strong>Service de nettoyage</strong>
+            <strong>Service de nettoyage et conciergerie</strong>
             <p>
               Intervention rapide à Nice et alentours. Produits écologiques sur
               demande.
@@ -119,7 +173,11 @@ const HomePage = () => {
           </div>
         </section>
         <section className="home-right">
-          <img src={menage} alt="Cleaning" className="main-img" />
+          <img
+            src={menage}
+            alt="Service de ménage professionnel à Nice"
+            className="main-img"
+          />
         </section>
       </main>
 
@@ -130,7 +188,7 @@ const HomePage = () => {
           <div className="service-card">
             <img
               src={menageRegulier}
-              alt="Ménage régulier"
+              alt="Ménage régulier pour particuliers à Nice"
               className="service-icon"
             />
             <h3>Ménage régulier</h3>
@@ -139,21 +197,25 @@ const HomePage = () => {
           <div className="service-card">
             <img
               src={nettoyageAirbnb}
-              alt="Nettoyage Airbnb"
+              alt="Nettoyage Airbnb à Nice"
               className="service-icon"
             />
             <h3>Nettoyage Airbnb</h3>
             <p>Remise en état rapide entre deux locations saisonnières.</p>
           </div>
           <div className="service-card">
-            <img src={repassage} alt="Repassage" className="service-icon" />
+            <img
+              src={repassage}
+              alt="Service de repassage à domicile à Nice"
+              className="service-icon"
+            />
             <h3>Repassage</h3>
             <p>Prise en charge de votre linge à domicile.</p>
           </div>
           <div className="service-card">
             <img
               src={nettoyageProfondeur}
-              alt="Nettoyage en profondeur"
+              alt="Grand nettoyage en profondeur à Nice"
               className="service-icon"
             />
             <h3>Nettoyage en profondeur</h3>
@@ -167,19 +229,35 @@ const HomePage = () => {
         <h2>Pourquoi nous choisir ?</h2>
         <ul className="about-list">
           <li>
-            <img src={equipe} alt="Équipe" className="about-icon" />
+            <img
+              src={equipe}
+              alt="Équipe de nettoyage professionnelle"
+              className="about-icon"
+            />
             Équipe professionnelle et expérimentée
           </li>
           <li>
-            <img src={produits} alt="Produits" className="about-icon" />
+            <img
+              src={produits}
+              alt="Produits de nettoyage écologiques"
+              className="about-icon"
+            />
             Produits respectueux de l'environnement
           </li>
           <li>
-            <img src={flexibilite} alt="Flexibilité" className="about-icon" />
+            <img
+              src={flexibilite}
+              alt="Flexibilité des horaires de ménage"
+              className="about-icon"
+            />
             Flexibilité et réactivité
           </li>
           <li>
-            <img src={etoile} alt="Satisfaction" className="about-icon" />
+            <img
+              src={etoile}
+              alt="Satisfaction client garantie"
+              className="about-icon"
+            />
             Satisfaction garantie
           </li>
         </ul>
