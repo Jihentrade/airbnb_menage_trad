@@ -97,7 +97,7 @@ body {
 
 .h1-subtitle {
   display: block;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 500;
   margin-top: 10px;
   color: #1a3c40; /* Fallback for browsers that don't support gradient text */
@@ -111,7 +111,8 @@ body {
   margin-bottom: 24px;
   max-width: 500px;
   animation: slide-in-up 0.8s ease-out 0.2s forwards;
-  opacity: 0; /* Start hidden for animation */
+  opacity: 0;
+  text-align: justify; /* Start hidden for animation */
 }
 
 .cta-btn {

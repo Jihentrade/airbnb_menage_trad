@@ -15,14 +15,14 @@ const expertiseAreas = [
       "Un service de nettoyage en profondeur pour une propreté impeccable.",
   },
   {
-    icon: "📦",
-    title: "Emménagement",
+    icon: "🛋️",
+    title: "canapés & tapisseries",
     description:
       "Préparation de votre nouveau logement pour une installation en toute sérénité.",
   },
   {
     icon: "🚚",
-    title: "Déménagement",
+    title: "Déménagement & Emménagement",
     description:
       "Nettoyage de votre ancien logement pour un état des lieux sans souci.",
   },
@@ -34,7 +34,7 @@ const expertiseAreas = [
   },
   {
     icon: "🪟",
-    title: "Vitres, canapés et tapisseries",
+    title: "vitres et vitrines",
     description: "Nettoyage spécialisé pour vos surfaces délicates.",
   },
 ];
@@ -42,7 +42,7 @@ const expertiseAreas = [
 const ExpertiseSection = () => {
   return (
     <section className="expertise-section" id="metiers">
-      <h2 className="expertise-title">Nos Métiers</h2>
+      <h2 className="expertise-title">Nos prestations</h2>
       <p className="expertise-subtitle">
         Une expertise adaptée à chaque situation pour un résultat parfait.
       </p>
