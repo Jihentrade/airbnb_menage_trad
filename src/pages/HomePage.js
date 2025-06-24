@@ -111,7 +111,7 @@ const HomePage = () => {
           <nav className="nav-menu">
             <a href="#home">Accueil</a>
             <a href="#services">Services</a>
-            <a href="#metiers">Nos Métiers</a>
+            <a href="#metiers">Nos préstations</a>
             <a href="#contact">Contact</a>
           </nav>
         </div>
