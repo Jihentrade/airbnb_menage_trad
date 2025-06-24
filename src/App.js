@@ -1,15 +1,19 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import QuoteForm from "./pages/QuoteForm";
+import "./styles/App.css";
+import RouterConfig from "./router/routerConfig";
+import { Helmet } from "react-helmet";
+import FloatingWhatsApp from "./components/FloatingWhatsApp";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/devis" element={<QuoteForm />} />
-      </Routes>
-    </Router>
+    <>
+      <Helmet>
+        <title>Del coup d'éclat - Ménage à Nice</title>
+      </Helmet>
+      <div className="App">
+        <RouterConfig />
+        <FloatingWhatsApp />
+      </div>
+    </>
   );
 }
 
