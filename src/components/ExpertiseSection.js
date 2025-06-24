@@ -1,47 +1,39 @@
 import React from "react";
 import "../styles/ExpertiseSection.css";
-import {
-  HouseSiding,
-  CleaningServices,
-  MeetingRoom,
-  Moving,
-  Construction,
-  Window,
-} from "@mui/icons-material";
 
 const expertiseAreas = [
   {
-    icon: <HouseSiding />,
+    icon: "🏠",
     title: "Ménage Airbnb",
     description:
       "Nettoyage complet entre les locations pour garantir des avis 5 étoiles.",
   },
   {
-    icon: <CleaningServices />,
+    icon: "🧹",
     title: "Grand nettoyage",
     description:
       "Un service de nettoyage en profondeur pour une propreté impeccable.",
   },
   {
-    icon: <MeetingRoom />,
+    icon: "📦",
     title: "Emménagement",
     description:
       "Préparation de votre nouveau logement pour une installation en toute sérénité.",
   },
   {
-    icon: <Moving />,
+    icon: "🚚",
     title: "Déménagement",
     description:
       "Nettoyage de votre ancien logement pour un état des lieux sans souci.",
   },
   {
-    icon: <Construction />,
+    icon: "🔨",
     title: "Après travaux ou événements",
     description:
       "Remise en ordre et ménage complet pour retrouver votre espace.",
   },
   {
-    icon: <Window />,
+    icon: "🪟",
     title: "Vitres, canapés et tapisseries",
     description: "Nettoyage spécialisé pour vos surfaces délicates.",
   },
@@ -50,7 +42,7 @@ const expertiseAreas = [
 const ExpertiseSection = () => {
   return (
     <section className="expertise-section" id="metiers">
-      <h2 className="expertise-title">Nos Services de Nettoyage Personnalisés à Nice</h2>
+      <h2 className="expertise-title">Nos Métiers</h2>
       <p className="expertise-subtitle">
         Une expertise adaptée à chaque situation pour un résultat parfait.
       </p>
