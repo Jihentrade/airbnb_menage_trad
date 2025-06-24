@@ -113,14 +113,6 @@ const HomePage = () => {
             <a href="#services">Services</a>
             <a href="#metiers">Nos Métiers</a>
             <a href="#contact">Contact</a>
-            <a
-              href="https://wa.me/33753641503"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="whatsapp-nav-icon"
-            >
-              <WhatsAppIcon />
-            </a>
           </nav>
         </div>
       </header>
@@ -147,7 +139,6 @@ const HomePage = () => {
                 Obtenir un devis
               </Link>
             </button>
-            
           </div>
           <div className="service-info">
             <strong>Service de nettoyage et conciergerie</strong>
@@ -286,14 +277,6 @@ const HomePage = () => {
           ></textarea>
           <div className="submit-container">
             <button type="submit">Envoyer</button>
-            <a
-              href="https://wa.me/33753641503"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="whatsapp-side-icon"
-            >
-              <WhatsAppIcon />
-            </a>
           </div>
         </form>
       </section>
