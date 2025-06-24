@@ -1,0 +1,30 @@
+{
+  "short_name": "Del coup d'éclat",
+  "name": "Del coup d'éclat - Ménage et Nettoyage à Nice",
+  "description": "Service professionnel de ménage et nettoyage à Nice pour particuliers et locations Airbnb",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#1a3c40",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "categories": ["business", "lifestyle", "utilities"],
+  "lang": "fr",
+  "dir": "ltr"
+}

@@ -3,12 +3,98 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="description" content="Site de ménage Airbnb" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#1a3c40" />
+    <meta
+      name="description"
+      content="Service professionnel de ménage à Nice pour particuliers et locations Airbnb. Nettoyage, grand nettoyage, remise en ordre après travaux."
+    />
+    <meta
+      name="keywords"
+      content="ménage nice, airbnb menage nice, nettoyage nice, entreprise de nettoyage nice"
+    />
+    <meta name="author" content="Del coup d'éclat" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="%PUBLIC_URL%/logo.png" as="image" />
+    <link rel="preload" href="%PUBLIC_URL%/hommemenage.jpg" as="image" />
+
+    <!-- DNS Prefetch for external domains -->
+    <link rel="dns-prefetch" href="//wa.me" />
+    <link rel="dns-prefetch" href="//www.google-analytics.com" />
+
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <title>Ménage Airbnb</title>
+    <title>Ménage Airbnb & Nettoyage à Nice - Del coup d'éclat</title>
+
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "GA_MEASUREMENT_ID", {
+        page_title: "Ménage Airbnb & Nettoyage à Nice - Del coup d'éclat",
+        page_location: window.location.href,
+        custom_map: {
+          custom_dimension1: "service_type",
+        },
+      });
+    </script>
+
+    <!-- Structured Data for Local Business -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Del coup d'éclat",
+        "description": "Service professionnel de ménage et nettoyage à Nice pour particuliers et locations Airbnb",
+        "url": "https://www.menagenice.com",
+        "telephone": "+33753641503",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Nice",
+          "addressRegion": "Alpes-Maritimes",
+          "addressCountry": "FR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 43.7102,
+          "longitude": 7.262
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "08:00",
+            "closes": "20:00"
+          }
+        ],
+        "priceRange": "€€",
+        "image": "%PUBLIC_URL%/logo.png",
+        "sameAs": ["https://wa.me/33753641503"]
+      }
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

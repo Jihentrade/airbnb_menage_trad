@@ -91,17 +91,91 @@ const HomePage = () => {
   return (
     <div className="home-container">
       <Helmet>
-        <title>Ménage Airbnb & Nettoyage à Nice - Del coup d'éclat</title>
+        <title>
+          Ménage Airbnb & Nettoyage à Nice - Del coup d'éclat | Service
+          Professionnel
+        </title>
         <meta
           name="description"
-          content="Service professionnel de ménage à Nice pour particuliers et locations Airbnb. Nettoyage, grand nettoyage, remise en ordre après travaux. Obtenez un devis gratuit !"
+          content="Service professionnel de ménage à Nice pour particuliers et locations Airbnb. Nettoyage, grand nettoyage, remise en ordre après travaux. Équipe fiable et expérimentée. Devis gratuit !"
         />
         <meta
           name="keywords"
-          content="ménage nice, airbnb menage nice, nettoyage nice, entreprise de nettoyage nice, conciergerie airbnb nice, service de ménage nice, nettoyage après travaux nice"
+          content="ménage nice, airbnb menage nice, nettoyage nice, entreprise de nettoyage nice, conciergerie airbnb nice, service de ménage nice, nettoyage après travaux nice, ménage professionnel nice, nettoyage appartement nice, ménage maison nice"
         />
+        <meta name="author" content="Del coup d'éclat" />
+        <meta name="robots" content="index, follow" />
+        <meta name="language" content="French" />
+        <meta name="geo.region" content="FR-06" />
+        <meta name="geo.placename" content="Nice" />
+        <meta name="geo.position" content="43.7102;7.2620" />
+        <meta name="ICBM" content="43.7102, 7.2620" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.menagenice.com/" />
+        <meta
+          property="og:title"
+          content="Ménage Airbnb & Nettoyage à Nice - Del coup d'éclat"
+        />
+        <meta
+          property="og:description"
+          content="Service professionnel de ménage à Nice pour particuliers et locations Airbnb. Nettoyage, grand nettoyage, remise en ordre après travaux."
+        />
+        <meta property="og:image" content={logo} />
+        <meta property="og:site_name" content="Del coup d'éclat" />
+        <meta property="og:locale" content="fr_FR" />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://www.menagenice.com/" />
+        <meta
+          property="twitter:title"
+          content="Ménage Airbnb & Nettoyage à Nice - Del coup d'éclat"
+        />
+        <meta
+          property="twitter:description"
+          content="Service professionnel de ménage à Nice pour particuliers et locations Airbnb."
+        />
+        <meta property="twitter:image" content={logo} />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://www.menagenice.com/" />
+
+        {/* Local Business Schema */}
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
+        </script>
+
+        {/* Service Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: "Service de Ménage et Nettoyage à Nice",
+            description:
+              "Service professionnel de ménage et nettoyage pour particuliers et locations Airbnb à Nice",
+            provider: {
+              "@type": "LocalBusiness",
+              name: "Del coup d'éclat",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Nice",
+                addressCountry: "FR",
+              },
+              telephone: "+33753641503",
+            },
+            areaServed: {
+              "@type": "City",
+              name: "Nice",
+            },
+            serviceType: "Ménage et Nettoyage",
+            offers: {
+              "@type": "Offer",
+              priceCurrency: "EUR",
+              priceRange: "€€",
+            },
+          })}
         </script>
       </Helmet>
       <Notification message={notification.message} type={notification.type} />
@@ -125,9 +199,11 @@ const HomePage = () => {
             </span>
           </h1>
           <p className="intro">
-            Votre expert en ménage à Nice. Nous proposons des prestations de
-            nettoyage professionnelles pour particuliers et locations
-            saisonnières Airbnb. Profitez d'une équipe fiable pour un intérieur
+            Votre expert en <strong>ménage à Nice</strong> et{" "}
+            <strong>nettoyage Airbnb</strong>. Nous proposons des prestations de
+            <strong> nettoyage professionnel</strong> pour particuliers et{" "}
+            <strong>locations saisonnières</strong> à Nice.
+            <strong>Équipe de ménage fiable</strong> pour un intérieur
             impeccable !
           </p>
           <div className="cta-container">
@@ -136,15 +212,17 @@ const HomePage = () => {
                 to="/devis"
                 style={{ color: "inherit", textDecoration: "none" }}
               >
-                Obtenir un devis
+                Obtenir un devis gratuit
               </Link>
             </button>
           </div>
           <div className="service-info">
-            <strong>Service de nettoyage et conciergerie</strong>
+            <strong>Service de nettoyage et conciergerie à Nice</strong>
             <p>
-              Intervention rapide à Nice et alentours. Produits écologiques sur
-              demande.
+              Intervention rapide à <strong>Nice et alentours</strong>.{" "}
+              <strong>Produits écologiques</strong> sur demande.{" "}
+              <strong>Ménage professionnel</strong> pour{" "}
+              <strong>appartements</strong> et <strong>maisons</strong>.
             </p>
           </div>
           <div className="social-icons">
@@ -165,43 +243,59 @@ const HomePage = () => {
 
       {/* Section Services */}
       <section className="services-section" id="services">
-        <h2>Nos Services</h2>
+        <h2>Nos Services de Ménage à Nice</h2>
         <div className="services-list">
           <div className="service-card">
             <img
               src={menageRegulier}
-              alt="Ménage régulier pour particuliers à Nice"
+              alt="Ménage régulier pour particuliers à Nice - Service de nettoyage hebdomadaire"
               className="service-icon"
+              loading="lazy"
             />
-            <h3>Ménage régulier</h3>
-            <p>Entretien hebdomadaire ou ponctuel de votre logement.</p>
+            <h3>Ménage régulier à Nice</h3>
+            <p>
+              Entretien hebdomadaire ou ponctuel de votre logement.{" "}
+              <strong>Service de ménage fiable</strong> pour particuliers.
+            </p>
           </div>
           <div className="service-card">
             <img
               src={nettoyageAirbnb}
-              alt="Nettoyage Airbnb à Nice"
+              alt="Nettoyage Airbnb à Nice - Service de conciergerie pour locations saisonnières"
               className="service-icon"
+              loading="lazy"
             />
-            <h3>Nettoyage Airbnb</h3>
-            <p>Remise en état rapide entre deux locations saisonnières.</p>
+            <h3>Nettoyage Airbnb Nice</h3>
+            <p>
+              Remise en état rapide entre deux locations saisonnières.{" "}
+              <strong>Conciergerie Airbnb</strong> professionnelle.
+            </p>
           </div>
           <div className="service-card">
             <img
               src={repassage}
-              alt="Service de repassage à domicile à Nice"
+              alt="Service de repassage à domicile à Nice - Ménage et repassage"
               className="service-icon"
+              loading="lazy"
             />
-            <h3>Repassage</h3>
-            <p>Prise en charge de votre linge à domicile.</p>
+            <h3>Repassage à Nice</h3>
+            <p>
+              Prise en charge de votre linge à domicile.{" "}
+              <strong>Service de repassage</strong> professionnel.
+            </p>
           </div>
           <div className="service-card">
             <img
               src={nettoyageProfondeur}
-              alt="Grand nettoyage en profondeur à Nice"
+              alt="Grand nettoyage en profondeur à Nice - Nettoyage après travaux"
               className="service-icon"
+              loading="lazy"
             />
-            <h3>Nettoyage en profondeur</h3>
-            <p>Grand ménage de printemps, après travaux ou déménagement.</p>
+            <h3>Grand nettoyage Nice</h3>
+            <p>
+              Grand ménage de printemps, après travaux ou déménagement.{" "}
+              <strong>Nettoyage en profondeur</strong> complet.
+            </p>
           </div>
         </div>
       </section>
@@ -246,6 +340,59 @@ const HomePage = () => {
       </section>
 
       <ExpertiseSection />
+
+      {/* Section FAQ */}
+      <section className="faq-section" id="faq">
+        <h2>Questions Fréquentes - Ménage à Nice</h2>
+        <div className="faq-container">
+          <div className="faq-item">
+            <h3>Quels sont vos tarifs pour le ménage à Nice ?</h3>
+            <p>
+              Nos tarifs varient selon la surface, le type de prestation et la
+              fréquence. Contactez-nous pour un{" "}
+              <strong>devis personnalisé</strong> gratuit et sans engagement.
+            </p>
+          </div>
+          <div className="faq-item">
+            <h3>Intervenez-vous pour le nettoyage Airbnb à Nice ?</h3>
+            <p>
+              Oui, nous proposons un{" "}
+              <strong>service de conciergerie Airbnb</strong> complet incluant
+              le nettoyage entre deux locations et la remise en état rapide.
+            </p>
+          </div>
+          <div className="faq-item">
+            <h3>Utilisez-vous des produits écologiques ?</h3>
+            <p>
+              Nous proposons des <strong>produits écologiques</strong> sur
+              demande. Notre équipe s'adapte à vos préférences pour un nettoyage
+              respectueux de l'environnement.
+            </p>
+          </div>
+          <div className="faq-item">
+            <h3>Quelle est votre zone d'intervention à Nice ?</h3>
+            <p>
+              Nous intervenons sur <strong>Nice et ses alentours</strong>.
+              Contactez-nous pour vérifier la disponibilité dans votre quartier.
+            </p>
+          </div>
+          <div className="faq-item">
+            <h3>Proposez-vous un service de repassage à domicile ?</h3>
+            <p>
+              Oui, nous proposons un{" "}
+              <strong>service de repassage professionnel</strong> à domicile.
+              Prise en charge complète de votre linge.
+            </p>
+          </div>
+          <div className="faq-item">
+            <h3>Comment réserver un service de ménage ?</h3>
+            <p>
+              Vous pouvez nous contacter par téléphone, WhatsApp ou via notre
+              formulaire de devis en ligne. Nous vous répondons sous 24h.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Section Contact rapide */}
       <section className="contact-section" id="contact">

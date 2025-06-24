@@ -18,13 +18,13 @@ const expertiseAreas = [
     icon: "🛋️",
     title: "canapés & tapisseries",
     description:
-      "Préparation de votre nouveau logement pour une installation en toute sérénité.",
+      "Nettoyage en profondeur pour un intérieur propre, sain et accueillant.",
   },
   {
     icon: "🚚",
     title: "Déménagement & Emménagement",
     description:
-      "Nettoyage de votre ancien logement pour un état des lieux sans souci.",
+      "On s’occupe de tout, vous n’avez plus qu’à poser vos valises..",
   },
   {
     icon: "🔨",
