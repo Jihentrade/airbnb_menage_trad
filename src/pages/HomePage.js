@@ -11,7 +11,6 @@ import equipe from "../assets/equipe.png";
 import produits from "../assets/Produits.png";
 import flexibilite from "../assets/fexibilite.png";
 import etoile from "../assets/etoile.png";
-import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import Notification from "../components/Notification";
@@ -19,7 +18,6 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import ExpertiseSection from "../components/ExpertiseSection";
 
 const HomePage = () => {
-  const navigate = useNavigate();
   const form = useRef();
   const [notification, setNotification] = useState({ message: "", type: "" });
 
@@ -62,7 +60,7 @@ const HomePage = () => {
     name: "Del coup d'éclat",
     description:
       "Entreprise de ménage et nettoyage professionnel à Nice pour particuliers et locations saisonnières (Airbnb).",
-    url: "https://www.menagenice.com", 
+    url: "https://www.menagenice.com",
     telephone: "+33753641503",
     address: {
       "@type": "PostalAddress",
