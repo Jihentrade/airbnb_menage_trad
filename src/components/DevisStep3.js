@@ -3,7 +3,7 @@ import {
   GrandNettoyageIcon,
   EtatLieuxIcon,
   EmmenagementIcon,
-  DemenagementIcon,
+  CanapeIcon,
   RemiseOrdreIcon,
   VitresIcon,
 } from "../assets/icons";
@@ -30,14 +30,14 @@ const services = [
   },
   {
     id: "emmenagement",
-    name: "Emménagement",
+    name: "Emménagement ou Déménagement",
     Icon: EmmenagementIcon,
     description: "",
   },
   {
-    id: "demenagement",
-    name: "Déménagement",
-    Icon: DemenagementIcon,
+    id: "canapés et tapisseries",
+    name: "Canapés et tapisseries",
+    Icon: CanapeIcon,
     description: "",
   },
   {
@@ -48,7 +48,7 @@ const services = [
   },
   {
     id: "vitres",
-    name: "Vitres , canapés et tapisseries",
+    name: "Vitres et vitrines ",
     Icon: VitresIcon,
     description: "",
   },
