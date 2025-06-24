@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.357bf2d6.css",
-    "main.js": "/static/js/main.f45dc4be.js",
+    "main.css": "/static/css/main.7b4061c4.css",
+    "main.js": "/static/js/main.d9dfc97e.js",
     "static/media/hommemenage.jpg": "/static/media/hommemenage.df1ae48f0567c0113527.jpg",
     "static/media/logo.png": "/static/media/logo.9c340f07979bfff446f0.png",
     "static/media/menageairbnb.png": "/static/media/menageairbnb.8bbbe3d37096b33cdb3b.png",
@@ -15,11 +15,11 @@
     "static/media/Repassage.png": "/static/media/Repassage.a446b1d00449ad47dd22.png",
     "static/media/demeure.png": "/static/media/demeure.04855dbe1f403a8230ed.png",
     "index.html": "/index.html",
-    "main.357bf2d6.css.map": "/static/css/main.357bf2d6.css.map",
-    "main.f45dc4be.js.map": "/static/js/main.f45dc4be.js.map"
+    "main.7b4061c4.css.map": "/static/css/main.7b4061c4.css.map",
+    "main.d9dfc97e.js.map": "/static/js/main.d9dfc97e.js.map"
   },
   "entrypoints": [
-    "static/css/main.357bf2d6.css",
-    "static/js/main.f45dc4be.js"
+    "static/css/main.7b4061c4.css",
+    "static/js/main.d9dfc97e.js"
   ]
 }

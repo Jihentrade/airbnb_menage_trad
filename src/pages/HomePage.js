@@ -14,7 +14,7 @@ import etoile from "../assets/etoile.png";
 import { Link } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import Notification from "../components/Notification";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import WhatsAppIcon from "../components/WhatsAppIcon";
 import ExpertiseSection from "../components/ExpertiseSection";
 
 const HomePage = () => {
@@ -147,14 +147,14 @@ const HomePage = () => {
                 Obtenir un devis
               </Link>
             </button>
-            {/* <a
+            <a
               href="https://wa.me/33753641503"
               target="_blank"
               rel="noopener noreferrer"
               className="whatsapp-side-icon"
             >
               <WhatsAppIcon />
-            </a> */}
+            </a>
           </div>
           <div className="service-info">
             <strong>Service de nettoyage et conciergerie</strong>
