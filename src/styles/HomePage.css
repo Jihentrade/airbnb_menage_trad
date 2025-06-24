@@ -342,7 +342,7 @@ body {
   }
 
   .logo {
-    height: 70px;
+    height: 80px;
   }
 
   .nav-menu {
@@ -381,7 +381,7 @@ body {
   }
 
   .logo {
-    height: 70px;
+    height: 80px;
     margin-right: 10px;
     margin-bottom: 0;
   }
@@ -399,9 +399,7 @@ body {
     align-items: center;
     gap: 8px;
   }
-  .justify-text {
-    text-align: justify;
-  }
+
   
   .nav-menu a {
     font-size: 0.7rem;
@@ -518,7 +516,7 @@ body {
   }
 
   .logo {
-    height: 50px;
+    height: 60px;
     margin-right: 10px;
   }
 
@@ -614,7 +612,7 @@ body {
     gap: 10px;
   }
   .logo {
-    height: 80px;
+    height: 100px;
     margin-right: 10px;
   }
   .service-card {
@@ -657,7 +655,7 @@ body {
   }
 }
 .logo {
-  height: 80px;
+  height: 100px;
   margin-right: 10px;
 }
 /* --- About Section --- */

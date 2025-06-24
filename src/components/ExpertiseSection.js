@@ -24,7 +24,7 @@ const expertiseAreas = [
     icon: "🚚",
     title: "Déménagement & Emménagement",
     description:
-      "On s’occupe de tout, vous n’avez plus qu’à poser vos valises..",
+      "On s'occupe de tout, vous n'avez plus qu'à poser vos valises..",
   },
   {
     icon: "🔨",
@@ -36,6 +36,12 @@ const expertiseAreas = [
     icon: "🪟",
     title: "vitres et vitrines",
     description: "Nettoyage spécialisé pour vos surfaces délicates.",
+  },
+  {
+    icon: "🧼",
+    title: "Nettoyage et désinfection",
+    description:
+      "Service de désinfection professionnel pour un environnement sain et sécurisé.",
   },
 ];
 

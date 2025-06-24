@@ -34,18 +34,22 @@
 
 .expertise-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
 .expertise-card {
   background: #f9f9f9;
-  padding: 40px 30px;
+  padding: 35px 25px;
   border-radius: 15px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-top: 4px solid #f7c873;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 200px;
 }
 
 .expertise-card:hover {
@@ -56,21 +60,44 @@
 .expertise-icon {
   color: #1a3c40;
   margin-bottom: 20px;
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
 .expertise-card-title {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: #1a3c40;
   margin-bottom: 10px;
+  font-weight: 600;
 }
 
 .expertise-card-description {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: #666;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
+/* Tablet */
+@media screen and (max-width: 1024px) {
+  .expertise-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .expertise-card {
+    padding: 30px 20px;
+    min-height: 180px;
+  }
+
+  .expertise-icon {
+    font-size: 2.2rem;
+  }
+
+  .expertise-card-title {
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobile */
 @media screen and (max-width: 768px) {
   .expertise-section {
     padding: 60px 5%;
@@ -91,6 +118,38 @@
   }
 
   .expertise-card {
-    padding: 30px 25px;
+    padding: 25px 20px;
+    min-height: auto;
+  }
+
+  .expertise-icon {
+    font-size: 2rem;
+  }
+
+  .expertise-card-title {
+    font-size: 1.1rem;
+  }
+
+  .expertise-card-description {
+    font-size: 0.9rem;
+  }
+}
+
+/* Small Mobile */
+@media screen and (max-width: 480px) {
+  .expertise-section {
+    padding: 50px 3%;
+  }
+
+  .expertise-title {
+    font-size: 1.8rem;
+  }
+
+  .expertise-card {
+    padding: 20px 15px;
+  }
+
+  .expertise-icon {
+    font-size: 1.8rem;
   }
 }
