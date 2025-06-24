@@ -147,14 +147,7 @@ const HomePage = () => {
                 Obtenir un devis
               </Link>
             </button>
-            <a
-              href="https://wa.me/33753641503"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="whatsapp-side-icon"
-            >
-              <WhatsAppIcon />
-            </a>
+            
           </div>
           <div className="service-info">
             <strong>Service de nettoyage et conciergerie</strong>
