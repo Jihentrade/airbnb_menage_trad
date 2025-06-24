@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import "../styles/HomePage.css";
 import logo from "../assets/logo.png";
@@ -16,10 +16,12 @@ import emailjs from "@emailjs/browser";
 import Notification from "../components/Notification";
 import WhatsAppIcon from "../components/WhatsAppIcon";
 import ExpertiseSection from "../components/ExpertiseSection";
+import FloatingWhatsApp from "../components/FloatingWhatsApp";
 
 const HomePage = () => {
   const form = useRef();
   const [notification, setNotification] = useState({ message: "", type: "" });
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const showNotification = (message, type) => {
     setNotification({ message, type });
@@ -56,20 +58,23 @@ const HomePage = () => {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "HomeAndConstructionBusiness",
+    "@type": "LocalBusiness",
     name: "Del coup d'éclat",
     description:
-      "Entreprise de ménage et nettoyage professionnel à Nice pour particuliers et locations saisonnières (Airbnb).",
+      "Service professionnel de ménage et nettoyage à Nice pour particuliers et locations Airbnb",
     url: "https://www.menagenice.com",
     telephone: "+33753641503",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Nice",
+      addressRegion: "Alpes-Maritimes",
       addressCountry: "FR",
     },
-    image: logo,
-    servesCuisine: "Ménage et Nettoyage",
-    priceRange: "€€",
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 43.7102,
+      longitude: 7.262,
+    },
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
@@ -86,6 +91,17 @@ const HomePage = () => {
         closes: "20:00",
       },
     ],
+    priceRange: "€€",
+    image: logo,
+    sameAs: ["https://wa.me/33753641503"],
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -182,13 +198,41 @@ const HomePage = () => {
       <header className="home-header">
         <div className="logo-nav">
           <img src={logo} alt="Logo Cleaning Service" className="logo" />
-          <nav className="nav-menu">
-            <a href="#home">Accueil</a>
-            <a href="#services">Services</a>
-            <a href="#metiers">Nos préstations</a>
-            <a href="#contact">Contact</a>
+
+          {/* Hamburger Menu Button */}
+          <button className="hamburger-menu" onClick={toggleMobileMenu}>
+            <span
+              className={`hamburger-line ${isMobileMenuOpen ? "open" : ""}`}
+            ></span>
+            <span
+              className={`hamburger-line ${isMobileMenuOpen ? "open" : ""}`}
+            ></span>
+            <span
+              className={`hamburger-line ${isMobileMenuOpen ? "open" : ""}`}
+            ></span>
+          </button>
+
+          {/* Desktop Navigation */}
+          <nav className={`nav-menu ${isMobileMenuOpen ? "mobile-open" : ""}`}>
+            <a href="#home" onClick={closeMobileMenu}>
+              Accueil
+            </a>
+            <a href="#services" onClick={closeMobileMenu}>
+              Services
+            </a>
+            <a href="#metiers" onClick={closeMobileMenu}>
+              Nos préstations
+            </a>
+            <a href="#contact" onClick={closeMobileMenu}>
+              Contact
+            </a>
           </nav>
         </div>
+
+        {/* Mobile Menu Overlay */}
+        {isMobileMenuOpen && (
+          <div className="mobile-overlay" onClick={closeMobileMenu}></div>
+        )}
       </header>
       <main className="home-main">
         <section className="home-left">
@@ -363,7 +407,7 @@ const HomePage = () => {
           </div>
           <div className="faq-item">
             <h3>Utilisez-vous des produits écologiques ?</h3>
-            <p>
+            <p className="justify-text">
               Nous proposons des <strong>produits écologiques</strong> sur
               demande. Notre équipe s'adapte à vos préférences pour un nettoyage
               respectueux de l'environnement.
@@ -371,14 +415,14 @@ const HomePage = () => {
           </div>
           <div className="faq-item">
             <h3>Quelle est votre zone d'intervention à Nice ?</h3>
-            <p>
+            <p className="justify-text">
               Nous intervenons sur <strong>Nice et ses alentours</strong>.
               Contactez-nous pour vérifier la disponibilité dans votre quartier.
             </p>
           </div>
           <div className="faq-item">
             <h3>Proposez-vous un service de repassage à domicile ?</h3>
-            <p>
+            <p className="justify-text">
               Oui, nous proposons un{" "}
               <strong>service de repassage professionnel</strong> à domicile.
               Prise en charge complète de votre linge.
