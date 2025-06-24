@@ -48,7 +48,7 @@ const services = [
   },
   {
     id: "vitres",
-    name: "Vitres",
+    name: "Vitres , canapés et tapisseries",
     Icon: VitresIcon,
     description: "",
   },

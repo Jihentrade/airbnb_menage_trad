@@ -62,7 +62,7 @@ const HomePage = () => {
     name: "Del coup d'éclat",
     description:
       "Entreprise de ménage et nettoyage professionnel à Nice pour particuliers et locations saisonnières (Airbnb).",
-    url: "https://www.votresite.com", // Replace with your actual domain
+    url: "https://www.menagenice.com", 
     telephone: "+33753641503",
     address: {
       "@type": "PostalAddress",
