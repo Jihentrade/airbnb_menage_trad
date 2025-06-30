@@ -21,7 +21,6 @@ import FloatingWhatsApp from "../components/FloatingWhatsApp";
 const HomePage = () => {
   const form = useRef();
   const [notification, setNotification] = useState({ message: "", type: "" });
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const showNotification = (message, type) => {
     setNotification({ message, type });
@@ -94,14 +93,6 @@ const HomePage = () => {
     priceRange: "€€",
     image: logo,
     sameAs: ["https://wa.me/33753641503"],
-  };
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -198,41 +189,13 @@ const HomePage = () => {
       <header className="home-header">
         <div className="logo-nav">
           <img src={logo} alt="Logo Cleaning Service" className="logo" />
-
-          {/* Hamburger Menu Button */}
-          <button className="hamburger-menu" onClick={toggleMobileMenu}>
-            <span
-              className={`hamburger-line ${isMobileMenuOpen ? "open" : ""}`}
-            ></span>
-            <span
-              className={`hamburger-line ${isMobileMenuOpen ? "open" : ""}`}
-            ></span>
-            <span
-              className={`hamburger-line ${isMobileMenuOpen ? "open" : ""}`}
-            ></span>
-          </button>
-
-          {/* Desktop Navigation */}
-          <nav className={`nav-menu ${isMobileMenuOpen ? "mobile-open" : ""}`}>
-            <a href="#home" onClick={closeMobileMenu}>
-              Accueil
-            </a>
-            <a href="#services" onClick={closeMobileMenu}>
-              Services
-            </a>
-            <a href="#metiers" onClick={closeMobileMenu}>
-              Nos préstations
-            </a>
-            <a href="#contact" onClick={closeMobileMenu}>
-              Contact
-            </a>
+          <nav className="nav-menu">
+            <a href="#home">Accueil</a>
+            <a href="#services">Services</a>
+            <a href="#metiers">Nos préstations</a>
+            <a href="#contact">Contact</a>
           </nav>
         </div>
-
-        {/* Mobile Menu Overlay */}
-        {isMobileMenuOpen && (
-          <div className="mobile-overlay" onClick={closeMobileMenu}></div>
-        )}
       </header>
       <main className="home-main">
         <section className="home-left">

@@ -38,7 +38,8 @@ body {
 
 .nav-menu {
   display: flex;
-  gap: 32px;
+  gap: 40px;
+  align-items: center;
 }
 
 .nav-menu a {
@@ -46,12 +47,48 @@ body {
   color: #1a3c40;
   font-weight: 600;
   font-size: 1.1rem;
-  transition: color 0.2s;
-  white-space: nowrap;
+  padding: 12px 20px;
+  border-radius: 25px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  border: 2px solid transparent;
+}
+
+.nav-menu a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(247, 200, 115, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.nav-menu a:hover::before {
+  left: 100%;
 }
 
 .nav-menu a:hover {
-  color: #f7c873;
+  color: #1a3c40;
+  background: rgba(247, 200, 115, 0.15);
+  border-color: #f7c873;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(247, 200, 115, 0.3);
+}
+
+.nav-menu a.active {
+  background: linear-gradient(135deg, #1a3c40, #4d6e71);
+  color: white;
+  border-color: #1a3c40;
+  box-shadow: 0 8px 25px rgba(26, 60, 64, 0.3);
 }
 
 .whatsapp-nav-icon {
@@ -376,75 +413,156 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+  .nav-menu {
+    display: none !important;
+  }
+
   .hamburger-menu {
     display: flex;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1000;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .hamburger-menu:hover {
+    background: rgba(247, 200, 115, 0.1);
+  }
+
+  .hamburger-line {
+    width: 28px;
+    height: 3px;
+    background: linear-gradient(90deg, #1a3c40, #4d6e71);
+    margin: 4px 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .hamburger-line.open:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+    background: #f7c873;
+  }
+
+  .hamburger-line.open:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  .hamburger-line.open:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+    background: #f7c873;
   }
 
   .nav-menu {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 250px;
+    width: 300px;
     height: 100vh;
-    background: linear-gradient(135deg, #1a3c40 0%, #4d6e71 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #eaf6f6 100%);
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding-top: 80px;
-    transition: right 0.3s ease;
+    padding-top: 100px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 999;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+    border-left: 3px solid #f7c873;
   }
 
   .nav-menu.mobile-open {
     right: 0;
+    transform: translateX(0);
   }
 
   .nav-menu a {
-    color: white;
-    font-size: 1.1rem;
-    padding: 15px 20px;
-    margin: 10px 0;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    width: 80%;
+    color: #1a3c40;
+    font-size: 1.2rem;
+    padding: 18px 30px;
+    margin: 8px 0;
+    border-radius: 15px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 85%;
     text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid transparent;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .nav-menu a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(247, 200, 115, 0.3),
+      transparent
+    );
+    transition: left 0.5s ease;
+  }
+
+  .nav-menu a:hover::before {
+    left: 100%;
   }
 
   .nav-menu a:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: #f7c873;
-    transform: translateX(5px);
+    background: linear-gradient(135deg, #f7c873, #f8d494);
+    color: #1a3c40;
+    transform: translateX(8px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(247, 200, 115, 0.4);
+    border-color: #1a3c40;
+  }
+
+  .nav-menu a.active {
+    background: linear-gradient(135deg, #1a3c40, #4d6e71);
+    color: white;
+    border-color: #f7c873;
+    box-shadow: 0 8px 25px rgba(26, 60, 64, 0.4);
   }
 
   .logo-nav {
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
+    padding: 15px 20px;
     width: 100%;
     position: relative;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    border-bottom: 2px solid rgba(247, 200, 115, 0.2);
   }
 
   .logo {
-    height: 120px !important;
-    margin: 0 auto;
+    height: 80px !important;
+    margin: 0;
     order: 1;
     flex-shrink: 0;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
   }
 
   .hamburger-menu {
     order: 2;
-    position: absolute;
+    position: relative;
     right: 0;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 0;
+    transform: none;
   }
 
   .home-header {
-    padding: 10px 20px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(26, 60, 64, 0.1);
+    padding: 0;
+    background: transparent;
+    backdrop-filter: none;
+    border-bottom: none;
   }
 
   .home-main {
@@ -546,42 +664,51 @@ body {
   }
 }
 
+@media screen and (min-width: 769px) {
+  .hamburger-menu {
+    display: none !important;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .nav-menu {
     width: 100%;
     right: -100%;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
   }
 
   .nav-menu a {
-    font-size: 1rem;
-    padding: 12px 15px;
+    font-size: 1.1rem;
+    padding: 16px 25px;
+    width: 90%;
   }
 
   .logo {
-    height: 100px !important;
+    height: 70px !important;
   }
 
   .hamburger-line {
-    width: 22px;
-    height: 2px;
+    width: 24px;
+    height: 2.5px;
   }
 
   .home-header {
-    padding: 8px 15px;
+    padding: 0;
   }
 
   .logo-nav {
-    padding: 10px 0;
+    padding: 12px 15px;
   }
 }
 
 @media screen and (max-width: 360px) {
   .logo {
-    height: 90px !important;
+    height: 65px !important;
   }
 
-  .home-header {
-    padding: 5px 10px;
+  .nav-menu a {
+    font-size: 1rem;
+    padding: 14px 20px;
   }
 }
 
@@ -935,247 +1062,4 @@ body {
   background: rgba(0, 0, 0, 0.5);
   z-index: 998;
   backdrop-filter: blur(2px);
-}
-
-/* Hamburger Menu */
-.hamburger-menu {
-  display: none;
-  flex-direction: column;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 5px;
-  z-index: 1000;
-}
-
-.hamburger-line {
-  width: 25px;
-  height: 3px;
-  background-color: #1a3c40;
-  margin: 3px 0;
-  transition: 0.3s;
-  border-radius: 2px;
-}
-
-.hamburger-line.open:nth-child(1) {
-  transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.hamburger-line.open:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger-line.open:nth-child(3) {
-  transform: rotate(45deg) translate(-5px, -6px);
-}
-
-/* Mobile Navigation */
-@media screen and (max-width: 768px) {
-  .hamburger-menu {
-    display: flex;
-  }
-
-  .nav-menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 250px;
-    height: 100vh;
-    background: linear-gradient(135deg, #1a3c40 0%, #4d6e71 100%);
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding-top: 80px;
-    transition: right 0.3s ease;
-    z-index: 999;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
-  }
-
-  .nav-menu.mobile-open {
-    right: 0;
-  }
-
-  .nav-menu a {
-    color: white;
-    font-size: 1.1rem;
-    padding: 15px 20px;
-    margin: 10px 0;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    width: 80%;
-    text-align: center;
-  }
-
-  .nav-menu a:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: #f7c873;
-    transform: translateX(5px);
-  }
-
-  .logo-nav {
-    justify-content: center;
-    align-items: center;
-    padding: 15px 0;
-    width: 100%;
-    position: relative;
-  }
-
-  .logo {
-    height: 120px !important;
-    margin: 0 auto;
-    order: 1;
-    flex-shrink: 0;
-  }
-
-  .hamburger-menu {
-    order: 2;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .home-header {
-    padding: 10px 20px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(26, 60, 64, 0.1);
-  }
-
-  .home-main {
-    padding: 30px 20px;
-  }
-
-  .home-left h1 {
-    font-size: 2.2rem;
-  }
-
-  .intro {
-    font-size: 1rem;
-  }
-
-  .main-img {
-    max-width: 350px;
-  }
-
-  .services-list {
-    flex-wrap: wrap;
-    padding: 0 15px;
-    gap: 15px;
-    justify-content: center;
-  }
-
-  .service-card {
-    flex: 0 0 calc(50% - 15px);
-    min-width: 160px;
-    max-width: none;
-    padding: 20px 15px;
-  }
-
-  .service-icon {
-    width: 60px;
-    height: 60px;
-  }
-
-  .service-card h3 {
-    font-size: 1.1rem;
-    margin-bottom: 8px;
-  }
-
-  .service-card p {
-    font-size: 0.85rem;
-  }
-
-  .services-section h2 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-  }
-
-  .about-section {
-    padding: 40px 80px;
-  }
-
-  .about-section h2 {
-    font-size: 2rem;
-  }
-
-  .about-list {
-    flex-direction: column;
-    gap: 25px;
-  }
-
-  .about-list li {
-    width: 100%;
-    margin-bottom: 0;
-    padding: 20px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .about-list li h3 {
-    text-align: center;
-    width: 100%;
-    margin-top: 10px;
-    font-size: 1.2rem;
-  }
-
-  .about-list li p {
-    text-align: center;
-    width: 100%;
-  }
-
-  .about-icon {
-    margin: 0 auto 10px auto;
-    display: block;
-  }
-
-  .contact-section {
-    padding: 40px 30px;
-  }
-
-  .contact-form {
-    padding: 25px;
-    margin: 0 20px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .nav-menu {
-    width: 100%;
-    right: -100%;
-  }
-
-  .nav-menu a {
-    font-size: 1rem;
-    padding: 12px 15px;
-  }
-
-  .logo {
-    height: 100px !important;
-  }
-
-  .hamburger-line {
-    width: 22px;
-    height: 2px;
-  }
-
-  .home-header {
-    padding: 8px 15px;
-  }
-
-  .logo-nav {
-    padding: 10px 0;
-  }
-}
-
-@media screen and (max-width: 360px) {
-  .logo {
-    height: 90px !important;
-  }
-
-  .home-header {
-    padding: 5px 10px;
-  }
 }

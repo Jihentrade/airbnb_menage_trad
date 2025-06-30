@@ -1,0 +1,120 @@
+/* Overlay */
+.side-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 1000;
+}
+.side-menu-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Drawer */
+.side-menu-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 320px;
+  max-width: 90vw;
+  background: #fff;
+  box-shadow: 2px 0 24px rgba(0, 0, 0, 0.18);
+  transform: translateX(-100%);
+  transition: transform 0.35s cubic-bezier(0.77, 0, 0.18, 1);
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+.side-menu-drawer.open {
+  transform: translateX(0);
+}
+
+/* Close button */
+.side-menu-close {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #f7f7f7;
+  border: 1.5px solid #b6e23a;
+  color: #7bb700;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  transition: background 0.2s;
+  z-index: 1200;
+}
+.side-menu-close:hover {
+  background: #eaf6e6;
+}
+
+/* Logo */
+.side-menu-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 38px 0 18px 0;
+}
+.side-menu-logo img {
+  max-width: 120px;
+  height: auto;
+}
+
+/* Menu list */
+.side-menu-list {
+  list-style: none;
+  padding: 0 0 0 0;
+  margin: 0;
+  width: 100%;
+}
+.side-menu-item {
+  border-bottom: 1px solid #f0f0f0;
+}
+.side-menu-item:last-child {
+  border-bottom: none;
+}
+.side-menu-item a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 32px 18px 32px;
+  color: #1a3c40;
+  font-size: 1.13rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  position: relative;
+}
+.side-menu-item a:hover {
+  background: #eaf6e6;
+  color: #7bb700;
+}
+.side-menu-arrow {
+  margin-left: 10px;
+  font-size: 1.1em;
+  color: #b6e23a;
+}
+
+@media (max-width: 400px) {
+  .side-menu-drawer {
+    width: 95vw;
+    min-width: 0;
+    padding: 0;
+  }
+  .side-menu-item a {
+    padding: 16px 16px 16px 20px;
+  }
+}
