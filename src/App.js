@@ -25,7 +25,8 @@ function App() {
             style={{
               position: "fixed",
               top: 18,
-              left: 18,
+              right: 18,
+              left: "auto",
               zIndex: 1201,
               background: "none",
               border: "none",
