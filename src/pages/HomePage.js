@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { Helmet } from "react-helmet";
 import "../styles/HomePage.css";
 import logo from "../assets/logo.png";
@@ -14,9 +14,7 @@ import etoile from "../assets/etoile.png";
 import { Link } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import Notification from "../components/Notification";
-import WhatsAppIcon from "../components/WhatsAppIcon";
 import ExpertiseSection from "../components/ExpertiseSection";
-import FloatingWhatsApp from "../components/FloatingWhatsApp";
 
 const HomePage = () => {
   const form = useRef();
@@ -99,8 +97,8 @@ const HomePage = () => {
     <div className="home-container">
       <Helmet>
         <title>
-          Ménage Airbnb & Nettoyage à Nice - Del coup d'éclat | Service
-          Professionnel
+          Ménage Airbnb & Nettoyage à Nice | Service Professionnel - Del coup
+          d'éclat
         </title>
         <meta
           name="description"
@@ -200,18 +198,20 @@ const HomePage = () => {
       <main className="home-main">
         <section className="home-left">
           <h1>
-            Del coup d'éclat
+            Ménage Airbnb & Nettoyage à Nice - Del coup d'éclat
             <span className="h1-subtitle">
-              Ménage & Nettoyage Professionnel à Nice
+              Service professionnel de ménage, nettoyage et conciergerie Airbnb
+              à Nice
             </span>
           </h1>
           <p className="intro">
-            Votre expert en <strong>ménage à Nice</strong> et{" "}
-            <strong>nettoyage Airbnb</strong>. Nous proposons des prestations de
-            <strong> nettoyage professionnel</strong> pour particuliers et{" "}
-            <strong>locations saisonnières</strong> à Nice.
-            <strong>Équipe de ménage fiable</strong> pour un intérieur
-            impeccable !
+            <strong>Del coup d'éclat</strong> est votre spécialiste du{" "}
+            <strong>ménage</strong> et du <strong>nettoyage</strong> à{" "}
+            <strong>Nice</strong>, pour particuliers et{" "}
+            <strong>locations Airbnb</strong>. Profitez d'un service de qualité
+            pour un logement toujours impeccable grâce à notre équipe
+            expérimentée. Découvrez pourquoi <strong>Del coup d'éclat</strong>{" "}
+            est la référence du <strong>ménage Airbnb</strong> à Nice !
           </p>
           <div className="cta-container">
             <button className="cta-btn">

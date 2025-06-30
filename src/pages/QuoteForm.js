@@ -181,7 +181,7 @@ export default function DevisWizard() {
           </div>
         </div>
         <div className="devis-header-right">
-          <span className="devis-phone">+33 6 05 60 53 37</span>
+          <span className="devis-phone">+ 33 7 53 64 15 03</span>
           <span className="devis-phone-desc">prix d'un appel local</span>
         </div>
       </header>
@@ -196,7 +196,7 @@ export default function DevisWizard() {
           </div>
           <div className="devis-avatar-row">
             <span className="devis-avatar">👤</span>
-            <span className="devis-avatar-name">Achraf Trade</span>
+            <span className="devis-avatar-name">Delphine Russo</span>
           </div>
           <div className="devis-step-desc">
             Aidez-nous à mieux vous connaître !<br />
