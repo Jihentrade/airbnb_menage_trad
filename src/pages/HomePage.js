@@ -60,7 +60,7 @@ const HomePage = () => {
     description:
       "Service professionnel de ménage et nettoyage à Nice pour particuliers et locations Airbnb",
     url: "https://www.menagenice.com",
-    telephone: "+33753641503",
+    telephone: "+33 7 53 64 15 03",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Nice",
