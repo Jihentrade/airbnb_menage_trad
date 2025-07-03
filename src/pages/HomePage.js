@@ -198,7 +198,7 @@ const HomePage = () => {
       <main className="home-main">
         <section className="home-left">
           <h1>
-            Ménage Airbnb & Nettoyage à Nice - Del coup d'éclat
+            Del coup d'éclat - Ménage Airbnb & Nettoyage à Nice
             <span className="h1-subtitle">
               Service professionnel de ménage, nettoyage et conciergerie Airbnb
               à Nice
